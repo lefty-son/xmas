@@ -5,7 +5,7 @@
 /[Bb]uilds/
 /Assets/AssetStoreTools*
 /xCode/
-/Download/
+/Assets/Download/
 
 # Visual Studio 2015 cache directory
 /.vs/
