@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
+    public float secondsForHalf;
     public bool isStart;
 
     private void Awake()
@@ -12,5 +13,6 @@ public class GameManager : MonoBehaviour {
             instance = this;
 
         isStart = true;
+        secondsForHalf = 60f;
     }
 }
