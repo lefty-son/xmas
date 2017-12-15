@@ -21,12 +21,13 @@ GameObject:
   - component: {fileID: 4119730374579662}
   - component: {fileID: 33583533236569224}
   - component: {fileID: 23056385680800848}
+  - component: {fileID: 136084170204539050}
   m_Layer: 0
   m_Name: Sledge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4119730374579662
 Transform:
@@ -82,3 +83,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1629189895005602}
   m_Mesh: {fileID: 4300000, guid: 1adc317313a5440b1b61076245f630fc, type: 3}
+--- !u!136 &136084170204539050
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1629189895005602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 7.6
+  m_Height: 40.2
+  m_Direction: 2
+  m_Center: {x: 0, y: 7.475, z: 0}

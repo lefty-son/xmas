@@ -503,6 +503,14 @@ Prefab:
       value: 
       objectReference: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000,
         type: 0}
+    - target: {fileID: 1227572427128140, guid: af8cf14065bff4d06b2e8caed8d53b07, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062203993503054, guid: af8cf14065bff4d06b2e8caed8d53b07, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: af8cf14065bff4d06b2e8caed8d53b07, type: 2}
   m_IsPrefabParent: 0
