@@ -25,7 +25,7 @@ public class StagePosition : MonoBehaviour {
     }
 
     private void MovePosition(int _index){
-        stages[_index % 4].transform.localPosition = new Vector3(0f, 0f, 200 * (_index + 4));
+        stages[_index % 4].transform.localPosition = new Vector3(0f, 0f, 200 * (_index + 4  ));
     }
 
 
