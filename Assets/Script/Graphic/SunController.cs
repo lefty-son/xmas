@@ -22,6 +22,6 @@ public class SunController : MonoBehaviour {
         if(GameManager.instance.isStart){
             transform.eulerAngles += Vector3.up * Time.deltaTime * daySpeed;
         }
-        sunLight.intensity = Mathf.PingPong(Time.time / GameManager.instance.secondsForHalf, 1);
+        sunLight.intensity =  1 -  Mathf.PingPong(Time.time / GameManager.instance.secondsForHalf, 1);
     }
 }

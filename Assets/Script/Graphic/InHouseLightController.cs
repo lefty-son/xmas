@@ -15,6 +15,6 @@ public class InHouseLightController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        houseLight.intensity = (1 - (Mathf.PingPong(Time.time / GameManager.instance.secondsForHalf, 1))) * 15;
+        houseLight.intensity = (Mathf.PingPong(Time.time / GameManager.instance.secondsForHalf, 1)) * 15;
 	}
 }
