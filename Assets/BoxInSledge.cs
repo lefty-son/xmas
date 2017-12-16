@@ -24,8 +24,11 @@ public class BoxInSledge : MonoBehaviour {
     }
 
     public void Add(){
+        UIManager.instance.deliver.interactable = true;
         if (index >= 7) return;
         boxes[index++].SetActive(true);
     }
+
+
 
 }

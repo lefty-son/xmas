@@ -1,32 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
-    public Animation giftPanel;
-    [SerializeField]
-    private AnimationClip giftPanelIn;
-    [SerializeField]
-    private AnimationClip giftPanelOut;
+
+    public Button tap, deliver;
+
+    public Animation maxStackAnim;
 
     private void Awake()
     {
         if (instance == null) instance = this;
-
-        giftPanelIn = giftPanel.GetClip("GiftSelectPanel");
-        giftPanelOut = giftPanel.GetClip("GiftSelectPanelOut");
+        tap.interactable = true;
+        deliver.interactable = false;
     }
 
-    public void GiftPanelIn(){
-        giftPanel.gameObject.SetActive(true);
-        giftPanel.clip = giftPanelIn;
-        giftPanel.Play();
+    public void EnableButtons()
+    {
+        tap.interactable = true;
+        //deliver.interactable = true;
     }
 
-    public void GiftPanelOut(){
-        giftPanel.clip = giftPanelOut;
-        giftPanel.Play();
-        GameManager.instance.isRunning = true;
+    public void MaxStacked(){
+        maxStackAnim.Play();
     }
 }

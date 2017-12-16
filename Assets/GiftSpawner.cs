@@ -35,7 +35,6 @@ public class GiftSpawner : MonoBehaviour {
         giftAnimation[GameManager.instance.Index].clip = _out;
         giftAnimation[GameManager.instance.Index].Play();
         GameManager.instance.Index++;
-
     }
 
 }

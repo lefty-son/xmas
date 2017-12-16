@@ -25,8 +25,16 @@ public class GameManager : MonoBehaviour {
         }
         set {
             stack = value;
+            if(stack >= maxStack){
+                // Disable tap;
+                Debug.Log("MAXED!");
+                UIManager.instance.tap.interactable = false;
+                UIManager.instance.MaxStacked();
+            }
         }
     }
+
+    public int maxStack;
 
     public bool isStart;
     public bool isRunning;
@@ -35,7 +43,9 @@ public class GameManager : MonoBehaviour {
         if (instance == null)
             instance = this;
 
-        index = 0;
+        maxStack = 5;
+        Stack = 0;
+        Index = 0;
         isStart = true;
         isRunning = true;
         secondsForHalf = 60f;
@@ -45,5 +55,10 @@ public class GameManager : MonoBehaviour {
         Index = 0;
         Tap.instance.NextWave();
         GiftSpawner.instance.NextWave();
+    }
+
+    public void ClearStack(){
+        var income = Stack;
+        Stack = 0;  
     }
 }

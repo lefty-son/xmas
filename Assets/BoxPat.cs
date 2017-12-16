@@ -29,6 +29,7 @@ public class BoxPat : MonoBehaviour {
         if (transform.localScale.y >= 1f){
             done = true;
             GiftSpawner.instance.ConveyorOut();
+            GameManager.instance.Stack++;
         }
     }
 }
