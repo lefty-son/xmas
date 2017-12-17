@@ -143,6 +143,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4398764469997426}
   - component: {fileID: 114214208052133332}
+  - component: {fileID: 111983680592617942}
+  - component: {fileID: 114391066323258642}
   m_Layer: 0
   m_Name: Sledge
   m_TagString: Untagged
@@ -8375,6 +8377,22 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!111 &111983680592617942
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062203993503054}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 03dd989309fe647e0bd581da79dadfe5, type: 2}
+  - {fileID: 7400000, guid: 2bd59634e8efb4d07874c5dc42c5df6d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114057773343200190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8431,6 +8449,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  dollar: {fileID: 0}
+  dolloarText: {fileID: 0}
   counterAnim: {fileID: 0}
   counterText: {fileID: 0}
 --- !u!114 &114316462050826902
@@ -8444,6 +8464,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd5d733541694d21a0ed1a159287319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114391066323258642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062203993503054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a80ca8c62a840a889f844b418a5739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deliver: {fileID: 7400000, guid: 03dd989309fe647e0bd581da79dadfe5, type: 2}
+  comeback: {fileID: 7400000, guid: 2bd59634e8efb4d07874c5dc42c5df6d, type: 2}
 --- !u!114 &114391309638893996
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
+    public Animation dollarAnim;
+    public Text dollarText;
+
     public Button tap, deliver;
 
     public Animation maxStackAnim;
@@ -25,5 +28,11 @@ public class UIManager : MonoBehaviour {
 
     public void MaxStacked(){
         maxStackAnim.Play();
+    }
+
+    public void UpdateDollar(){
+        dollarAnim.Play();
+        UIPat.instance.PatIt();
+        dollarText.text = PrefManager.instance.GetDolloar().ToString();
     }
 }

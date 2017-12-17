@@ -8,6 +8,7 @@ public class SledgeUIHolder : MonoBehaviour
 
     public GameObject panel;
     public GameObject dollar;
+    public Text dollarText;
     public Animation counterAnim;
     public Text counterText;
 
@@ -25,7 +26,7 @@ public class SledgeUIHolder : MonoBehaviour
 
     public void HideAndInitCounter(){
         panel.SetActive(false);
-        GameManager.instance.ClearStack();
+
         WhiteCounter();
     }
 
@@ -37,7 +38,7 @@ public class SledgeUIHolder : MonoBehaviour
     }
 
     public void UpdateCounterText(){
-        StringBuilder stb = new StringBuilder("X ");
+        StringBuilder stb = new StringBuilder();
         stb.Append(GameManager.instance.Stack);
         stb.Append(" / ");
         stb.Append(GameManager.instance.maxStack);
@@ -46,7 +47,17 @@ public class SledgeUIHolder : MonoBehaviour
 
     public void Dollar(){
         dollar.SetActive(true);
-        dollar.transform.position = uiPosition + new Vector3(75, 25, 0);
+        dollarText.gameObject.SetActive(true);
+
+        // Set dollar text
+        var income = GameManager.instance.Stack;
+        StringBuilder stb = new StringBuilder("+ ");
+        stb.Append(income);
+        stb.Append("$");
+        dollarText.text = stb.ToString();
+
+        GameManager.instance.ClearStack();
+        dollar.transform.position = uiPosition + new Vector3(50, 25, 0);
     }
 
     public void WhiteCounter(){
