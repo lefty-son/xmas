@@ -17,14 +17,14 @@ public class SledgeDeliver : MonoBehaviour {
         UIManager.instance.tap.interactable = false; 
         SledgeUIHolder.instance.HideAndInitCounter();
         anim.clip = deliver;
-        anim[deliver.name].speed = PrefManager.instance.GetSledgeSpeed();
+        anim[deliver.name].speed = PrefManager.instance.GetSledSpeedCalc();
         anim.Play();
     }
 
     public void Comeback(){
         BoxInSledge.instance.Init();
         anim.clip = comeback;
-        anim[comeback.name].speed = PrefManager.instance.GetSledgeSpeed();
+        anim[comeback.name].speed = PrefManager.instance.GetSledSpeedCalc();
         anim.Play();
     }
 

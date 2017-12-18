@@ -6,18 +6,14 @@ public class GiftInfoHolder : MonoBehaviour {
 
     public static GiftInfoHolder instance;
 
-    public TextMesh infoPrice;
+    public TextMesh infoPrice, shadow;
 
-    Vector3 uiPosition;
+
 
     private void Awake()
     {
         if (instance == null) instance = this;
     }
-
-	void Start () {
-        uiPosition = Camera.main.WorldToScreenPoint(this.transform.position); 
-	}
 
     public void ShowInfo(){
         
@@ -27,11 +23,15 @@ public class GiftInfoHolder : MonoBehaviour {
         stb.Append("$");
         infoPrice.text = stb.ToString();
         infoPrice.gameObject.SetActive(true);
+        shadow.text = stb.ToString();
+        shadow.gameObject.SetActive(true);
     }
 
     public void HideInfo(){
         infoPrice.text = "";
         infoPrice.gameObject.SetActive(false);
+        shadow.text = "";
+        shadow.gameObject.SetActive(false);
     }
 	
 }

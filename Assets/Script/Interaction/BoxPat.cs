@@ -9,7 +9,7 @@ public class BoxPat : MonoBehaviour {
         if(!done){
             Debug.Log(_value);
             //  tapping as value X user's power
-            transform.localScale += new Vector3(0f, _value * PrefManager.instance.GetPower(), 0f); 
+            transform.localScale += new Vector3(0f, _value * PrefManager.instance.GetSantaCalc(), 0f); 
             StartCoroutine(Pat());
         }
     }

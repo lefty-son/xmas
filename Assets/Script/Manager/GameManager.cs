@@ -26,8 +26,6 @@ public class GameManager : MonoBehaviour {
         set {
             stack = value;
             if(stack >= maxStack){
-                // Disable tap;
-                Debug.Log("MAXED!");
                 UIManager.instance.tap.interactable = false;
                 UIManager.instance.MaxStacked();
             }
@@ -66,7 +64,7 @@ public class GameManager : MonoBehaviour {
             instance = this;
 
         NowIncome = 0;
-        maxStack = PrefManager.instance.GetMaxStack();
+        maxStack = PrefManager.instance.GetSledMaxCalc();
         Dollar = PrefManager.instance.GetDolloar();
         Stack = 0;
         Index = 0;
