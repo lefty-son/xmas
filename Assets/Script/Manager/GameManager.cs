@@ -34,6 +34,16 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    private int nowIncome;
+    public int NowIncome {
+        get {
+            return nowIncome;
+        }
+        set {
+            nowIncome = value;
+        }
+    }
+
     private int dollar;
     public int Dollar{
         get{ 
@@ -43,7 +53,6 @@ public class GameManager : MonoBehaviour {
             dollar = value;
             PrefManager.instance.SetDollar(dollar);
             UIManager.instance.UpdateDollar();
-            // TODO: Update UI
         }
     }
 
@@ -56,11 +65,12 @@ public class GameManager : MonoBehaviour {
         if (instance == null)
             instance = this;
 
+        NowIncome = 0;
         maxStack = PrefManager.instance.GetMaxStack();
         Dollar = PrefManager.instance.GetDolloar();
         Stack = 0;
         Index = 0;
-        isStart = true;
+        isStart = false;
         isRunning = true;
         secondsForHalf = 60f;
     }
@@ -72,9 +82,10 @@ public class GameManager : MonoBehaviour {
     }
 
     public void ClearStack(){
-        var income = Stack;
+        var income = NowIncome;
         EarnDolloar(income);
         Stack = 0;
+        NowIncome = 0;
     }
 
     public void EarnDolloar(int _value){
@@ -91,5 +102,10 @@ public class GameManager : MonoBehaviour {
             return;
         }
 
+    }
+
+    public int GetIndex(){
+        var r = Random.Range(0, 2);
+        return r;
     }
 }

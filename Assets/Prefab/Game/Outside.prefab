@@ -8450,7 +8450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
   dollar: {fileID: 0}
-  dolloarText: {fileID: 0}
+  dollarText: {fileID: 0}
   counterAnim: {fileID: 0}
   counterText: {fileID: 0}
 --- !u!114 &114316462050826902
@@ -8611,7 +8611,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1878779156
+  randomSeed: -1593751259
   InitialModule:
     serializedVersion: 3
     enabled: 1
