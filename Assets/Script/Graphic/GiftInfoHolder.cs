@@ -13,7 +13,6 @@ public class GiftInfoHolder : MonoBehaviour {
     private void Awake()
     {
         if (instance == null) instance = this;
-        Debug.Log(gameObject.name);
     }
 
 	void Start () {
