@@ -187,6 +187,7 @@ public class PrefManager : MonoBehaviour
     {
         GameManager.instance.Dollar = 10000;
         GameManager.instance.Heart = 100;
+        PlayerPrefs.SetInt(GIFT_TIER, 12);
     }
 
     public void ResetAll()
