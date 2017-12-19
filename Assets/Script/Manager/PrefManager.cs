@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrefManager : MonoBehaviour {
+public class PrefManager : MonoBehaviour
+{
 
     public static PrefManager instance;
 
     private readonly string DOLLAR = "DOLLAR";
+    private readonly string HEART = "HEART";
     private readonly string FIRST_VISIT = "FIRST_VISIT";
     private readonly string SHOP_TEMP = "SHOP_TEMP";
     private readonly string LANGUA = "LANGUA";
@@ -16,32 +18,40 @@ public class PrefManager : MonoBehaviour {
     private readonly string SANTA_LEVEL = "SANTA_LEVEL";
     private readonly string CONVEY_LEVEL = "CONVEY_LEVEL";
 
+    private readonly string GIFT_TIER = "GIFT_TIER";
+
     private void Awake()
     {
         if (instance == null) instance = this;
         Init();
     }
 
-    private void Init(){
-        if(PlayerPrefs.HasKey(FIRST_VISIT)){
+    private void Init()
+    {
+        if (PlayerPrefs.HasKey(FIRST_VISIT))
+        {
             // Continue
         }
-        else {
+        else
+        {
             // A new user
             PlayerPrefs.SetInt(FIRST_VISIT, 1);
             PlayerPrefs.SetInt(DOLLAR, 0);
             PlayerPrefs.SetInt(SHOP_TEMP, 0);
+            PlayerPrefs.SetInt(HEART, 0);
 
             PlayerPrefs.SetInt(SANTA_LEVEL, 0);
             PlayerPrefs.SetInt(CONVEY_LEVEL, 0);
             PlayerPrefs.SetInt(SLED_MAX_LEVEL, 0);
             PlayerPrefs.SetInt(SLED_SPEED_LEVEL, 0);
+            PlayerPrefs.SetInt(GIFT_TIER, 0);
 
-            if(Application.systemLanguage == SystemLanguage.English)
+            if (Application.systemLanguage == SystemLanguage.English)
             {
                 PlayerPrefs.SetInt(LANGUA, 0);
             }
-            else if(Application.systemLanguage == SystemLanguage.Korean){
+            else if (Application.systemLanguage == SystemLanguage.Korean)
+            {
                 PlayerPrefs.SetInt(LANGUA, 1);
             }
             else if (Application.systemLanguage == SystemLanguage.ChineseSimplified)
@@ -58,15 +68,26 @@ public class PrefManager : MonoBehaviour {
 
     #region INFO
 
-    public int GetLanguage(){
+    public int GetHeart(){
+        return PlayerPrefs.GetInt(HEART);
+    }
+
+    public void SetHeart(int _value){
+        PlayerPrefs.SetInt(HEART, _value);
+    }
+
+    public int GetLanguage()
+    {
         return PlayerPrefs.GetInt(LANGUA);
     }
 
-    public void SetLanguage(int _value){
+    public void SetLanguage(int _value)
+    {
         PlayerPrefs.SetInt(LANGUA, _value);
     }
 
-    public int GetShopTemp(){
+    public int GetShopTemp()
+    {
         return PlayerPrefs.GetInt(SHOP_TEMP);
     }
 
@@ -75,7 +96,8 @@ public class PrefManager : MonoBehaviour {
         PlayerPrefs.SetInt(SHOP_TEMP, _value);
     }
 
-    public int GetDolloar(){
+    public int GetDolloar()
+    {
         return PlayerPrefs.GetInt(DOLLAR);
     }
 
@@ -88,15 +110,18 @@ public class PrefManager : MonoBehaviour {
 
     #region UPGRADE
 
-    public int GetSantaLevel(){
+    public int GetSantaLevel()
+    {
         return PlayerPrefs.GetInt(SANTA_LEVEL);
     }
 
-    public void SetSantaLevel(){
+    public void SetSantaLevel()
+    {
         PlayerPrefs.SetInt(SANTA_LEVEL, GetSantaLevel() + 1);
     }
 
-    public float GetSantaCalc(){
+    public float GetSantaCalc()
+    {
         return 1f + (GetSantaLevel() * 0.1f);
     }
 
@@ -125,7 +150,8 @@ public class PrefManager : MonoBehaviour {
         PlayerPrefs.SetInt(SLED_MAX_LEVEL, GetSledMaxLevel() + 1);
     }
 
-    public int GetSledMaxCalc(){
+    public int GetSledMaxCalc()
+    {
         return 5 + GetSledMaxLevel();
     }
 
@@ -139,14 +165,35 @@ public class PrefManager : MonoBehaviour {
         PlayerPrefs.SetInt(SLED_SPEED_LEVEL, GetSledSpeedLevel() + 1);
     }
 
-    public float GetSledSpeedCalc(){
+    public float GetSledSpeedCalc()
+    {
         return 1f + (GetSledSpeedLevel() * 0.1f);
     }
 
-#endregion
+    public int GetGiftTier(){
+        return PlayerPrefs.GetInt(GIFT_TIER);
+    }
 
-    public void ResetAll(){
+    public void SetGiftTier(){
+        PlayerPrefs.SetInt(GIFT_TIER, GetGiftTier() + 1);
+    }
+
+    #endregion
+
+
+    #region DEBUG
+
+    public void Cheat()
+    {
+        GameManager.instance.Dollar = 10000;
+        GameManager.instance.Heart = 100;
+    }
+
+    public void ResetAll()
+    {
         PlayerPrefs.DeleteAll();
     }
+
+#endregion
 
 }

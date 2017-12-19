@@ -7,13 +7,22 @@ public class ShopManager : MonoBehaviour {
 
     public static ShopManager instance;
 
+    // Modiy here to adjust upgrade cost
     private readonly int INIT_UPGRADE_SANTA = 10;
     private readonly int INIT_UPGRADE_CONVEY = 10;
     private readonly int INIT_SLED_MAX = 10;
     private readonly int INIT_SLED_SPEED = 10;
 
+    // Modify here to adjust max level
+    private readonly int MAXLVL_UPGRADE_SANTA = 7;
+    private readonly int MAXLVL_UPGRADE_CONVEY = 7;
+    private readonly int MAXLVL_SLED_MAX = 7;
+    private readonly int MAXLVL_SLED_SPEED = 7;
+
     public Text santaCost, conveyCost, sledMaxCost, sledSpeedCost;
     public Button santaButton, conveyButton, sledMaxButton, sledSpeedButton;
+    public Image upgradeNavi, sledNavi, giftNavi;
+    public Slider santaSlider, conveySlider, sledMaxSlider, sledSpeedSlider;
 
     public GameObject upgrade, sledge, gift;
 
@@ -22,12 +31,15 @@ public class ShopManager : MonoBehaviour {
         if (instance == null) instance = this;
     }
 
-#region PANEL
+    #region PANEL
 
     public void OnUpgrade(){
         sledge.SetActive(false);
         gift.SetActive(false);
         upgrade.SetActive(true);
+        sledNavi.color = Color.white;
+        giftNavi.color = Color.white;
+        upgradeNavi.color = Color.gray;
         PrefManager.instance.SetShopTemp(0);
     }
 
@@ -36,6 +48,9 @@ public class ShopManager : MonoBehaviour {
         upgrade.SetActive(false);
         gift.SetActive(false);
         sledge.SetActive(true);
+        upgradeNavi.color = Color.white;
+        giftNavi.color = Color.white;
+        sledNavi.color = Color.gray;
         PrefManager.instance.SetShopTemp(1);
     }
 
@@ -44,6 +59,9 @@ public class ShopManager : MonoBehaviour {
         upgrade.SetActive(false);
         sledge.SetActive(false);
         gift.SetActive(true);
+        upgradeNavi.color = Color.white;
+        sledNavi.color = Color.white;
+        giftNavi.color = Color.gray;
         PrefManager.instance.SetShopTemp(2);
     }
 
@@ -61,53 +79,65 @@ public class ShopManager : MonoBehaviour {
         
     }
 
-#endregion
+    #endregion
+
+    #region Upgrades
 
     public void UpgradeSanta(){
+        GameManager.instance.SpendDollar(INIT_UPGRADE_SANTA * (PrefManager.instance.GetSantaLevel() + 1));
         PrefManager.instance.SetSantaLevel();
-        UpdateSanta();
+        UpdateAllUI();
     }
 
     public void UpgradeConvey()
     {
+        GameManager.instance.SpendDollar(INIT_UPGRADE_CONVEY * (PrefManager.instance.GetConveyLevel() + 1));
         PrefManager.instance.SetConveySpeed();
-        UpdateConvey();
+        UpdateAllUI();
     }
 
     public void UpgradeSledMax()
     {
+        GameManager.instance.SpendDollar(INIT_SLED_MAX * (PrefManager.instance.GetSledMaxLevel() + 1));
         PrefManager.instance.SetSledMaxLevel();
-        UpdateSledMax();
+        UpdateAllUI();
     }
 
     public void UpgradeSledSpeed()
     {
+        GameManager.instance.SpendDollar(INIT_SLED_SPEED * (PrefManager.instance.GetSledSpeedLevel() + 1));
         PrefManager.instance.SetSledSpeedLevel();
-        UpdateSledSpeed();
+        UpdateAllUI();
     }
+
+#endregion
 
     public void UpdateAllUI(){
         UpdateSanta();
         UpdateConvey();
         UpdateSledMax();
         UpdateSledSpeed();
+
+        // TODO: heart ui
     }
 
     private void UpdateSanta(){
-        var cost = INIT_UPGRADE_SANTA * (PrefManager.instance.GetSantaLevel() + 1);
-        if(GameManager.instance.Dollar >= cost){
+        var cost = INIT_UPGRADE_SANTA * (PrefManager.instance.GetSantaLevel() + 1) * (PrefManager.instance.GetSantaLevel() + 1) ;
+        santaSlider.value = PrefManager.instance.GetSantaLevel();
+        if(GameManager.instance.Dollar >= cost && PrefManager.instance.GetSantaLevel() < MAXLVL_UPGRADE_SANTA){
             santaButton.interactable = true;
         }
         else{
             santaButton.interactable = false;
         }
-        // TODO: Increase Level Handling
         santaCost.text = cost.ToString();
     }
+
     private void UpdateConvey()
     {
-        var cost = INIT_UPGRADE_CONVEY * (PrefManager.instance.GetConveyLevel() + 1);
-        if (GameManager.instance.Dollar >= cost)
+        var cost = INIT_UPGRADE_CONVEY * (PrefManager.instance.GetConveyLevel() + 1) * (PrefManager.instance.GetConveyLevel() + 1);
+        conveySlider.value = PrefManager.instance.GetConveyLevel();
+        if (GameManager.instance.Dollar >= cost && PrefManager.instance.GetConveyLevel() < MAXLVL_UPGRADE_CONVEY)
         {
             conveyButton.interactable = true;
         }
@@ -115,13 +145,14 @@ public class ShopManager : MonoBehaviour {
         {
             conveyButton.interactable = false;
         }
-        // TODO: Increase Level Handling
         conveyCost.text = cost.ToString();
     }
+
     private void UpdateSledMax()
     {
-        var cost = INIT_SLED_MAX * (PrefManager.instance.GetSledMaxLevel() + 1);
-        if (GameManager.instance.Dollar >= cost)
+        var cost = INIT_SLED_MAX * (PrefManager.instance.GetSledMaxLevel() + 1) * (PrefManager.instance.GetSledMaxLevel() + 1);
+        sledMaxSlider.value = PrefManager.instance.GetSledMaxLevel();
+            if (GameManager.instance.Dollar >= cost && PrefManager.instance.GetSledMaxLevel() < MAXLVL_SLED_MAX)
         {
             sledMaxButton.interactable = true;
         }
@@ -129,13 +160,14 @@ public class ShopManager : MonoBehaviour {
         {
             sledMaxButton.interactable = false;
         }
-        // TODO: Increase Level Handling
         sledMaxCost.text = cost.ToString();
     }
+
     private void UpdateSledSpeed()
     {
-        var cost = INIT_SLED_SPEED * (PrefManager.instance.GetSledSpeedLevel() + 1);
-        if (GameManager.instance.Dollar >= cost)
+        var cost = INIT_SLED_SPEED * (PrefManager.instance.GetSledSpeedLevel() + 1) * (PrefManager.instance.GetSledSpeedLevel() + 1);;
+        sledSpeedSlider.value = PrefManager.instance.GetSledSpeedLevel();
+        if (GameManager.instance.Dollar >= cost && PrefManager.instance.GetSledSpeedLevel() < MAXLVL_SLED_SPEED)
         {
             sledSpeedButton.interactable = true;
         }
@@ -143,7 +175,6 @@ public class ShopManager : MonoBehaviour {
         {
             sledSpeedButton.interactable = false;
         }
-        // TODO: Increase Level Handling
         sledSpeedCost.text = cost.ToString();
     }
 }

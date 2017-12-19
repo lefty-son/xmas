@@ -41,7 +41,8 @@ public class SledgeUIHolder : MonoBehaviour
         StringBuilder stb = new StringBuilder();
         stb.Append(GameManager.instance.Stack);
         stb.Append(" / ");
-        stb.Append(GameManager.instance.maxStack);
+
+        stb.Append(PrefManager.instance.GetSledMaxCalc());
         counterText.text = stb.ToString();
     }
 

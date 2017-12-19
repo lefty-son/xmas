@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
         }
         set {
             stack = value;
-            if(stack >= maxStack){
+            if(stack >= PrefManager.instance.GetSledMaxCalc()){
                 UIManager.instance.tap.interactable = false;
                 UIManager.instance.MaxStacked();
             }
@@ -51,10 +51,23 @@ public class GameManager : MonoBehaviour {
             dollar = value;
             PrefManager.instance.SetDollar(dollar);
             UIManager.instance.UpdateDollar();
+            ShopManager.instance.UpdateAllUI();
         }
     }
 
-    public int maxStack;
+    private int heart;
+    public int Heart {
+        get {
+            return heart;
+        }
+        set {
+            heart = value;
+            PrefManager.instance.SetHeart(heart);
+            UIManager.instance.UpdateHeart();
+            ShopManager.instance.UpdateAllUI();
+        }
+    }
+
 
     public bool isStart;
     public bool isRunning;
@@ -64,8 +77,8 @@ public class GameManager : MonoBehaviour {
             instance = this;
 
         NowIncome = 0;
-        maxStack = PrefManager.instance.GetSledMaxCalc();
         Dollar = PrefManager.instance.GetDolloar();
+        Heart = PrefManager.instance.GetHeart();
         Stack = 0;
         Index = 0;
         isStart = false;
@@ -99,11 +112,24 @@ public class GameManager : MonoBehaviour {
             Debug.Log("NO MONEY!");
             return;
         }
+    }
 
+    public void EarnHeart(int _value){
+        Heart = Heart + _value;
+    }
+
+    public void SpendHeart(int _value){
+        if(Heart >= _value){
+            Heart = Heart - _value;
+        }
+        else {
+            Debug.Log("NO HEART!");
+            return;
+        }
     }
 
     public int GetIndex(){
-        var r = Random.Range(0, 2);
+        var r = Random.Range(0, PrefManager.instance.GetGiftTier() + 1);
         return r;
     }
 }

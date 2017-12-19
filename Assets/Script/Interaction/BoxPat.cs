@@ -7,7 +7,6 @@ public class BoxPat : MonoBehaviour {
 
     public void TapIt(float _value){
         if(!done){
-            Debug.Log(_value);
             //  tapping as value X user's power
             transform.localScale += new Vector3(0f, _value * PrefManager.instance.GetSantaCalc(), 0f); 
             StartCoroutine(Pat());

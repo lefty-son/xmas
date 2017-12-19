@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour {
     public Animation dollarAnim;
     public Text dollarText;
 
+    public Animation heartAnim;
+    public Text heartText;
+
     public GameObject upgradePanel;
 
     public Button tap;
@@ -33,6 +36,11 @@ public class UIManager : MonoBehaviour {
     public void UpdateDollar(){
         dollarAnim.Play();
         dollarText.text = PrefManager.instance.GetDolloar().ToString();
+    }
+
+    public void UpdateHeart(){
+        heartAnim.Play();
+        heartText.text = PrefManager.instance.GetHeart().ToString();
     }
 
     public void ToggleUpgradePanel(){
