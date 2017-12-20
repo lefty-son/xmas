@@ -32,7 +32,7 @@ public class GiftManager : MonoBehaviour {
 
         for (int i = 0; i < gifts.Length; i++){
             gifts[i].SetActive(false);
-            unlock[i].onClick.AddListener(OnUnlock);
+            unlock[i].onClick.AddListener(AnimUnlock);
             unlock[i].gameObject.SetActive(false);
             holder[i].color = Color.white;
             _name[i].gameObject.SetActive(true);
@@ -69,6 +69,10 @@ public class GiftManager : MonoBehaviour {
             unlock[PrefManager.instance.GetGiftTier() + 1].interactable = false;
         }
 
+    }
+
+    public void AnimUnlock(){
+        unlock[PrefManager.instance.GetGiftTier() + 1].GetComponent<Animation>().Play();
     }
 
     public void OnUnlock(){

@@ -29,7 +29,13 @@ public class GiftSpawner : MonoBehaviour {
         uniqIndex = GameManager.instance.GetIndex();
         giftAnimation[uniqIndex].transform.localScale = Vector3.one;
         giftAnimation[uniqIndex].clip = _in;
-        giftAnimation[uniqIndex][_in.name].speed = PrefManager.instance.GetConveyCalc();
+        if(GameManager.instance.IsFever){
+            giftAnimation[uniqIndex][_in.name].speed = PrefManager.instance.GetConveyCalc() * 2;
+        }
+        else {
+            giftAnimation[uniqIndex][_in.name].speed = PrefManager.instance.GetConveyCalc();
+
+        }
         giftAnimation[uniqIndex].Play();
     }
 
@@ -37,10 +43,20 @@ public class GiftSpawner : MonoBehaviour {
     {
         GiftInfoHolder.instance.HideInfo();
         giftAnimation[uniqIndex].clip = _out;
-        giftAnimation[uniqIndex][_out.name].speed = PrefManager.instance.GetConveyCalc();
+        if (GameManager.instance.IsFever)
+        {
+            giftAnimation[uniqIndex][_out.name].speed = PrefManager.instance.GetConveyCalc() * 2;
+        }
+        else
+        {
+            giftAnimation[uniqIndex][_out.name].speed = PrefManager.instance.GetConveyCalc();
+
+        }
         giftAnimation[uniqIndex].Play();
         var getDollar = Tap.instance.reward[uniqIndex].dollar;
         GameManager.instance.NowIncome += getDollar;
         //GameManager.instance.GetIndex()++;
     }
+
+   
 }

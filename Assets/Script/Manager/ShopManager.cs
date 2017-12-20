@@ -21,10 +21,10 @@ public class ShopManager : MonoBehaviour {
 
     public Text santaCost, conveyCost, sledMaxCost, sledSpeedCost;
     public Button santaButton, conveyButton, sledMaxButton, sledSpeedButton;
-    public Image upgradeNavi, sledNavi, giftNavi;
+    public Image upgradeNavi, sledNavi, giftNavi, currencyNavi;
     public Slider santaSlider, conveySlider, sledMaxSlider, sledSpeedSlider;
 
-    public GameObject upgrade, sledge, gift;
+    public GameObject upgrade, sledge, gift, currency;
 
     private void Awake()
     {
@@ -36,9 +36,11 @@ public class ShopManager : MonoBehaviour {
     public void OnUpgrade(){
         sledge.SetActive(false);
         gift.SetActive(false);
+        currency.SetActive(false);
         upgrade.SetActive(true);
         sledNavi.color = Color.white;
         giftNavi.color = Color.white;
+        currencyNavi.color = Color.white;
         upgradeNavi.color = Color.gray;
         PrefManager.instance.SetShopTemp(0);
     }
@@ -47,9 +49,11 @@ public class ShopManager : MonoBehaviour {
     {
         upgrade.SetActive(false);
         gift.SetActive(false);
+        currency.SetActive(false);
         sledge.SetActive(true);
         upgradeNavi.color = Color.white;
         giftNavi.color = Color.white;
+        currencyNavi.color = Color.white;
         sledNavi.color = Color.gray;
         PrefManager.instance.SetShopTemp(1);
     }
@@ -58,11 +62,25 @@ public class ShopManager : MonoBehaviour {
     {
         upgrade.SetActive(false);
         sledge.SetActive(false);
+        currency.SetActive(false);
         gift.SetActive(true);
         upgradeNavi.color = Color.white;
         sledNavi.color = Color.white;
+        currencyNavi.color = Color.white;
         giftNavi.color = Color.gray;
         PrefManager.instance.SetShopTemp(2);
+    }
+
+    public void OnCurrency(){
+        upgrade.SetActive(false);
+        sledge.SetActive(false);
+        gift.SetActive(false);
+        currency.SetActive(true);
+        upgradeNavi.color = Color.white;
+        sledNavi.color = Color.white;
+        giftNavi.color = Color.white;
+        currencyNavi.color = Color.gray;
+        PrefManager.instance.SetShopTemp(3);
     }
 
     public void CheckShopTemp(int _value){
@@ -75,6 +93,9 @@ public class ShopManager : MonoBehaviour {
         else if (_value == 2)
         {
             OnGift();
+        }
+        else if(_value == 3){
+            OnCurrency();
         }
         
     }

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
+    public GameObject hello;
+
     public Animation dollarAnim;
     public Text dollarText;
 
@@ -17,6 +19,8 @@ public class UIManager : MonoBehaviour {
     public Button tap;
 
     public Animation maxStackAnim;
+
+    public GameObject rewardOccur;
 
     private void Awake()
     {
@@ -44,6 +48,11 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ToggleUpgradePanel(){
+        hello.SetActive(!hello.activeInHierarchy);
         upgradePanel.SetActive(!upgradePanel.activeInHierarchy);
+    }
+
+    public void ShowRewardOccur(){
+        rewardOccur.SetActive(true);
     }
 }

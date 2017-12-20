@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SunController : MonoBehaviour {
-    [SerializeField]
-    private float daySpeed;
+
+    public static SunController instance;
+
+    public float daySpeed;
     private Light sunLight;
 
     private void Awake()
     {
+        if (instance == null) instance = this;
         sunLight = GetComponent<Light>();
 
     }
 
     private void Start()
     {
-        daySpeed = GameManager.instance.secondsForHalf / 20;
+        daySpeed = 3;
     }
 
     private void Update(){
@@ -25,3 +28,5 @@ public class SunController : MonoBehaviour {
         sunLight.intensity =  1 -  Mathf.PingPong(Time.time / GameManager.instance.secondsForHalf, 1);
     }
 }
+
+

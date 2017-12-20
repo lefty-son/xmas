@@ -22,6 +22,8 @@ public class Shaker : MonoBehaviour {
     public GameObject fader;
     private Image img;
 
+    public GameObject hurray;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -33,11 +35,18 @@ public class Shaker : MonoBehaviour {
     private void OnEnable()
     {
         parentCloseAnim.transform.localScale = Vector3.one;
+        parentCloseAnim.GetComponent<RectTransform>().offsetMin = new Vector2(800, 0);
+        parentCloseAnim.GetComponent<RectTransform>().offsetMax = new Vector2(800, 0);
         StartCoroutine(Shaking());
     }
 
     public void Shake(){
         StartCoroutine(Shaking());
+    }
+
+    private void OnDisable()
+    {
+        hurray.SetActive(false);
     }
 
     IEnumerator Shaking(){
@@ -66,6 +75,7 @@ public class Shaker : MonoBehaviour {
 
         nameAnim.Play();
         newOne.SetActive(true);
+        hurray.SetActive(true);
         fader.SetActive(true);
         transform.localScale = Vector3.one;
         img.color = Color.white;

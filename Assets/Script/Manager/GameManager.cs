@@ -5,6 +5,31 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
 
+    public GameObject inHouseHurray;
+
+    [SerializeField]
+    private bool isFever;
+    public bool IsFever {
+        get
+        {
+            return isFever;
+        }
+        set {
+            isFever = value;
+            if(isFever){
+                secondsForHalf = 1f;
+                inHouseHurray.gameObject.SetActive(true);
+                SunController.instance.daySpeed = 30;
+
+            }
+            else {
+                inHouseHurray.gameObject.SetActive(false);
+                secondsForHalf = 60f;
+                SunController.instance.daySpeed = 3;
+            }
+        }
+    }
+
     public float secondsForHalf;
 
     private int index;
@@ -115,6 +140,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void EarnHeart(int _value){
+        Debug.Log("ERAN HEART " + _value);
         Heart = Heart + _value;
     }
 
