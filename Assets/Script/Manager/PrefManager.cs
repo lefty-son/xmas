@@ -187,12 +187,13 @@ public class PrefManager : MonoBehaviour
     {
         GameManager.instance.Dollar = 10000;
         GameManager.instance.Heart = 100;
-        PlayerPrefs.SetInt(GIFT_TIER, 12);
+        PlayerPrefs.SetInt(GIFT_TIER, 13);
     }
 
     public void ResetAll()
     {
         PlayerPrefs.DeleteAll();
+        AdsManager.instance.ShowRewardedVideo();
     }
 
 #endregion
