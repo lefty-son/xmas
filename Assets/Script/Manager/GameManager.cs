@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour {
                 secondsForHalf = 1f;
                 inHouseHurray.gameObject.SetActive(true);
                 SunController.instance.daySpeed = 30;
-
             }
             else {
                 inHouseHurray.gameObject.SetActive(false);
@@ -29,6 +28,26 @@ public class GameManager : MonoBehaviour {
             }
         }
     }
+
+    private bool isRewardFever;
+    public bool IsRewardFever {
+        get {
+            return isRewardFever;
+        }
+        set {
+            isRewardFever = value;
+            if(isRewardFever){
+                // TODO change to coroutine.
+                incomeMultiply = 2;
+            }
+            else {
+                // TODO change to coroutine.
+                incomeMultiply = 1;
+            }
+        }
+    }
+
+    private int incomeMultiply;
 
     public float secondsForHalf;
 
@@ -101,6 +120,8 @@ public class GameManager : MonoBehaviour {
         if (instance == null)
             instance = this;
 
+        incomeMultiply = 1;
+        IsRewardFever = false;
         NowIncome = 0;
         Dollar = PrefManager.instance.GetDolloar();
         Heart = PrefManager.instance.GetHeart();
@@ -126,7 +147,7 @@ public class GameManager : MonoBehaviour {
 
     public void EarnDolloar(int _value){
         // Plus dollar
-        Dollar = Dollar + _value;
+        Dollar = Dollar + _value * incomeMultiply;
     }
 
     public void SpendDollar(int _value){

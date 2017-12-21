@@ -22,7 +22,7 @@ public class Fader : MonoBehaviour {
 
 
     IEnumerator FadeOut(){
-        var t = 1.5f;
+        var t = 1f;
         while ( t > 0 ){
             t -= Time.deltaTime;
             var a = curve.Evaluate(t);

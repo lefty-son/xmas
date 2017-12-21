@@ -3,45 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BoxShaker : MonoBehaviour {
+public class MultipleBoxShaker : MonoBehaviour {
 
-    static int heartNumber;
-    public static BoxShaker instance;
-    public GameObject hurray;
-
-    private Image boxImg;
+    public bool chosen;
     public Button keepGoin;
+    public static MultipleBoxShaker instance;
     public Animation parentAnim;
     public AnimationClip parentIn, parentOut;
-    public GameObject[] hearts;
+    private Image boxImg;
+    private Button boxBtn;
     public GameObject fader;
+    public GameObject hurray;
 
     private void Awake()
     {
         if (instance == null) instance = this;
+        chosen = false;
         boxImg = GetComponent<Image>();
-
+        boxBtn = GetComponent<Button>();
+        boxBtn.onClick.AddListener(Shake);
         keepGoin.onClick.AddListener(KeepGoing);
         keepGoin.gameObject.SetActive(false);
     }
 
+    public void Shake()
+    {
+        StartCoroutine(Shaking());
+        chosen = true;
+        MultipleBoxHider.instance.AnimateHide();
+    }
+
     private void OnEnable()
     {
-        foreach(GameObject go in hearts){
-            go.SetActive(false);
-        }
+        keepGoin.gameObject.SetActive(false);
         parentAnim.transform.localScale = Vector3.one;
         boxImg.transform.localScale = Vector3.one;
         parentAnim.GetComponent<RectTransform>().offsetMin = new Vector2(800, 0);
         parentAnim.GetComponent<RectTransform>().offsetMax = new Vector2(800, 0);
-        Shake();
+    }
+    private void OnDisable()
+    {
+        hurray.SetActive(false);
     }
 
-    public void Shake(){
-        StartCoroutine(Shaking());
+    public void KeepGoing()
+    {
+        parentAnim.clip = parentOut;
+        parentAnim.Play();
+        parentAnim.clip = parentIn;
     }
 
-    IEnumerator Shaking(){
+    IEnumerator Shaking()
+    {
         keepGoin.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
         var t = 0f;
@@ -53,27 +66,12 @@ public class BoxShaker : MonoBehaviour {
             t += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        chosen = false;
         boxImg.transform.localScale = Vector3.zero;
-        var r = Random.Range(0, 3);
-        heartNumber = r;
         keepGoin.gameObject.SetActive(true);
-        hearts[r].SetActive(true);
-
         fader.SetActive(true);
+        MultipleBoxHider.instance.ShowRandomReward();
         hurray.SetActive(true);
-   
-    }
-
-    private void OnDisable()
-    {
-        GameManager.instance.EarnHeart(heartNumber + 1);
-        hurray.SetActive(false);
-    }
-
-    public void KeepGoing(){
-        parentAnim.clip = parentOut;
-        parentAnim.Play();
-        parentAnim.clip = parentIn;
     }
 
 }

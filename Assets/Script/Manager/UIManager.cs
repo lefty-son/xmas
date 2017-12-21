@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour {
 
     public Animation maxStackAnim;
 
-    public GameObject rewardOccur;
+    public GameObject rewardOneBox, rewardMultipleBox;
 
     private void Awake()
     {
@@ -53,6 +53,13 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ShowRewardOccur(){
-        rewardOccur.SetActive(true);
+        var r = Random.Range(0, 2);
+        if(r == 0){
+            rewardOneBox.SetActive(true);
+        }
+        else if(r == 1){
+            rewardMultipleBox.SetActive(true);
+        }
+
     }
 }
