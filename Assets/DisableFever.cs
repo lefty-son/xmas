@@ -7,5 +7,6 @@ public class DisableFever : MonoBehaviour {
     private void OnDisable()
     {
         // StartCoroutine - RewardFever
+        GameManager.instance.IsRewardFever = true;
     }
 }

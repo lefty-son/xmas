@@ -10,7 +10,8 @@ public class BoxShaker : MonoBehaviour {
     public GameObject hurray;
 
     private Image boxImg;
-    public Button keepGoin;
+    public Button getTwice, getOnce;
+    public GameObject t_GetTwice, t_GetOnce;
     public Animation parentAnim;
     public AnimationClip parentIn, parentOut;
     public GameObject[] hearts;
@@ -21,8 +22,14 @@ public class BoxShaker : MonoBehaviour {
         if (instance == null) instance = this;
         boxImg = GetComponent<Image>();
 
-        keepGoin.onClick.AddListener(KeepGoing);
-        keepGoin.gameObject.SetActive(false);
+        getTwice.onClick.AddListener(GetTwice);
+        getTwice.gameObject.SetActive(false);
+        t_GetTwice.SetActive(false);
+
+        getOnce.onClick.AddListener(GetOnce);
+        getOnce.gameObject.SetActive(false);
+        t_GetOnce.SetActive(false);
+
     }
 
     private void OnEnable()
@@ -42,7 +49,10 @@ public class BoxShaker : MonoBehaviour {
     }
 
     IEnumerator Shaking(){
-        keepGoin.gameObject.SetActive(false);
+        getTwice.gameObject.SetActive(false);
+        getOnce.gameObject.SetActive(false);
+        t_GetTwice.SetActive(false);
+        t_GetOnce.SetActive(false);
         yield return new WaitForSeconds(1f);
         var t = 0f;
 
@@ -56,7 +66,10 @@ public class BoxShaker : MonoBehaviour {
         boxImg.transform.localScale = Vector3.zero;
         var r = Random.Range(0, 3);
         heartNumber = r;
-        keepGoin.gameObject.SetActive(true);
+        getTwice.gameObject.SetActive(true);
+        getOnce.gameObject.SetActive(true);
+        t_GetTwice.SetActive(true);
+        t_GetOnce.SetActive(true);
         hearts[r].SetActive(true);
 
         fader.SetActive(true);
@@ -66,11 +79,23 @@ public class BoxShaker : MonoBehaviour {
 
     private void OnDisable()
     {
-        GameManager.instance.EarnHeart(heartNumber + 1);
+        if(GameManager.instance.adViewd){
+            GameManager.instance.EarnHeart( (heartNumber + 1) * 2);
+            DollarReceiver.instance.ShowUI();
+        }
+        else {
+            GameManager.instance.EarnHeart(heartNumber + 1);
+        }
+
         hurray.SetActive(false);
     }
 
-    public void KeepGoing(){
+    public void GetTwice(){
+        AdsManager.instance.ShowRewardedVideo(0);
+    }
+
+    public void GetOnce()
+    {
         parentAnim.clip = parentOut;
         parentAnim.Play();
         parentAnim.clip = parentIn;

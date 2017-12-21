@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
-    public GameObject hello;
+    public GameObject creditPanel;
+
+    public GameObject hello, bye;
 
     public Animation dollarAnim;
     public Text dollarText;
@@ -26,6 +28,14 @@ public class UIManager : MonoBehaviour {
     {
         if (instance == null) instance = this;
         tap.interactable = true;
+    }
+
+    public void QuitGame(){
+        Application.Quit();
+    }
+
+    public void OnCredit(){
+        creditPanel.SetActive(true);
     }
 
     public void EnableButtons()
@@ -48,7 +58,13 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ToggleUpgradePanel(){
-        hello.SetActive(!hello.activeInHierarchy);
+
+        if(!upgradePanel.activeInHierarchy){
+            Bye();
+        }
+        else {
+            Hello();
+        }
         upgradePanel.SetActive(!upgradePanel.activeInHierarchy);
     }
 
@@ -56,10 +72,22 @@ public class UIManager : MonoBehaviour {
         var r = Random.Range(0, 2);
         if(r == 0){
             rewardOneBox.SetActive(true);
+            //hello.SetActive(!hello.activeInHierarchy);
         }
-        else if(r == 1){
+        else {
             rewardMultipleBox.SetActive(true);
+            //hello.SetActive(!hello.activeInHierarchy);
         }
+        Bye();
+    }
 
+    public void Hello(){
+        hello.transform.localScale = Vector3.one;
+        bye.transform.localScale = Vector3.one;
+    }
+
+    public void Bye(){
+        hello.transform.localScale = Vector3.zero;
+        bye.transform.localScale = Vector3.zero;   
     }
 }

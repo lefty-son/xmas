@@ -12,6 +12,11 @@ public class Localizer : MonoBehaviour {
     private readonly string sled_max = "sled_max";
     private readonly string sled_speed = "sled_speed";
 
+    private readonly string get_twice = "get_twice";
+    private readonly string get_just = "get_just";
+
+    private readonly string free_heart = "free_heart";
+
     #endregion
 
     #region NAMES
@@ -32,17 +37,6 @@ public class Localizer : MonoBehaviour {
     private readonly string ratel_name= "ratel_name";
     private readonly string sea_mink_name= "sea_mink_name";
 
-
-
-    #endregion
-
-
-    #region DESCS
-
-    private readonly string doggy_desc = "doggy_desc";
-    private readonly string rubber_duck_desc = "rubber_duck_desc";
-    private readonly string teddy_bear_desc = "teddy_bear_desc";
-    private readonly string snow_man_desc = "snow_man_desc";
 
     #endregion
 
@@ -86,10 +80,10 @@ public class Localizer : MonoBehaviour {
             dict.Add(ratel_name, "Badger");
             dict.Add(sea_mink_name, "Mink");
 
-            dict.Add(doggy_desc, "");
-            dict.Add(rubber_duck_desc, "");
-            dict.Add(teddy_bear_desc, "");
-            dict.Add(snow_man_desc, "");
+            dict.Add(get_twice, "Get double!");
+            dict.Add(get_just, "No thanks.");
+
+            dict.Add(free_heart, "Free Heart!");
         }
         // KO
         else if(lang == 1){
@@ -114,10 +108,10 @@ public class Localizer : MonoBehaviour {
             dict.Add(ratel_name, "오소리");
             dict.Add(sea_mink_name, "밍크");
 
-            dict.Add(doggy_desc, "");
-            dict.Add(rubber_duck_desc, "");
-            dict.Add(teddy_bear_desc, "");
-            dict.Add(snow_man_desc, "");
+            dict.Add(get_twice, "두 배로 받기!");
+            dict.Add(get_just, "그냥 받기.");
+
+            dict.Add(free_heart, "무료 하트!");
         }
         // CN
         else if(lang == 2){
@@ -142,10 +136,10 @@ public class Localizer : MonoBehaviour {
             dict.Add(ratel_name, "獾");
             dict.Add(sea_mink_name, "貂皮");
 
-            dict.Add(doggy_desc, "");
-            dict.Add(rubber_duck_desc, "");
-            dict.Add(teddy_bear_desc, "");
-            dict.Add(snow_man_desc, "");
+            dict.Add(get_twice, "得到双倍！");
+            dict.Add(get_just, "不用了，谢谢。");
+
+            dict.Add(free_heart, "免费的心！");
         }
         // JP
         else if (lang == 3)
@@ -171,10 +165,38 @@ public class Localizer : MonoBehaviour {
             dict.Add(ratel_name, "アナグマ");
             dict.Add(sea_mink_name, "ミンク");
 
-            dict.Add(doggy_desc, "");
-            dict.Add(rubber_duck_desc, "");
-            dict.Add(teddy_bear_desc, "");
-            dict.Add(snow_man_desc, "");
+            dict.Add(get_twice, "ダブルを得る！");
+            dict.Add(get_just, "いいえ結構です。");
+
+            dict.Add(free_heart, "無料ハート！");
+        }
+        else if(lang == 4)
+        {
+            dict.Add(upgrade_santa, "Lahjapakkauksen nopeus");
+            dict.Add(upgrade_convey, "Kuljetushihnan nopeus");
+            dict.Add(sled_max, "Kelkkakapasiteetti");
+            dict.Add(sled_speed, "Rullausnopeus");
+
+            dict.Add(doggy_name, "Koira");
+            dict.Add(rubber_duck_name, "Kumisate");
+            dict.Add(teddy_bear_name, "Nalle");
+            dict.Add(snow_man_name, "Snow mies");
+            dict.Add(beluga_whale_name, "Delfiini");
+            dict.Add(car_name, "Auto");
+            dict.Add(cheetah_name, "Gepardi");
+            dict.Add(frog_name, "Rupikonna");
+            dict.Add(giraffe_name, "Kirahvi");
+            dict.Add(great_auk_name, "Suuri auk");
+            dict.Add(lions_name, "Leijona");
+            dict.Add(mammoth_name, "mammutti");
+            dict.Add(puffin_name, "Lunni");
+            dict.Add(ratel_name, "Mäyrä");
+            dict.Add(sea_mink_name, "Minkki");
+
+            dict.Add(get_twice, "Hanki kaksinkertainen!");
+            dict.Add(get_just, "Ei kiitos.");
+
+            dict.Add(free_heart, "Vapaa sydän!");
         }
     }
 

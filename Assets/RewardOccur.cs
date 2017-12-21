@@ -19,9 +19,12 @@ public class RewardOccur : MonoBehaviour {
 
     public void Occurs(){
         anim.Play();
+        transform.localScale = Vector3.one;
     }
 
     public void Show(){
+        transform.localScale = Vector3.zero;    
+        FeverSlider.instance.isShown = false;
         UIManager.instance.ShowRewardOccur();
     }
 

@@ -26,6 +26,8 @@ public class ShopManager : MonoBehaviour {
 
     public GameObject upgrade, sledge, gift, currency;
 
+
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -75,10 +77,10 @@ public class ShopManager : MonoBehaviour {
         upgrade.SetActive(false);
         sledge.SetActive(false);
         gift.SetActive(false);
-        currency.SetActive(true);
+        currency.SetActive(true);   
         upgradeNavi.color = Color.white;
         sledNavi.color = Color.white;
-        giftNavi.color = Color.white;
+		giftNavi.color = Color.white;
         currencyNavi.color = Color.gray;
         PrefManager.instance.SetShopTemp(3);
     }

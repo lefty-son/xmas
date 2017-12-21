@@ -62,6 +62,9 @@ public class PrefManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt(LANGUA, 3);
             }
+            else if(Application.systemLanguage == SystemLanguage.Finnish){
+                PlayerPrefs.SetInt(LANGUA, 4);
+            }
 
         }
     }
@@ -193,9 +196,7 @@ public class PrefManager : MonoBehaviour
     public void ResetAll()
     {
         PlayerPrefs.DeleteAll();
-        AdsManager.instance.ShowRewardedVideo();
     }
 
-#endregion
-
+    #endregion
 }

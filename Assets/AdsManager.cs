@@ -8,6 +8,10 @@ public class AdsManager : MonoBehaviour
 
     public static AdsManager instance;
 
+    public GameObject freeHeartPanel;
+
+    public int adType;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -28,6 +32,8 @@ public class AdsManager : MonoBehaviour
 #endif
 
         MobileAds.Initialize(appId);
+
+        adType = 0;
 
         // Get singleton reward based video ad reference.
         this.rewardBasedVideo = RewardBasedVideoAd.Instance;
@@ -52,6 +58,7 @@ public class AdsManager : MonoBehaviour
     public void HandleRewardBasedVideoFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
         this.RequestRewardedVideo();
+        GameManager.instance.adViewd = false;
         MonoBehaviour.print(
             "HandleRewardBasedVideoFailedToLoad event received with message: "
                              + args.Message);
@@ -75,15 +82,15 @@ public class AdsManager : MonoBehaviour
 
     public void HandleRewardBasedVideoRewarded(object sender, Reward args)
     {
-        string type = args.Type;
-        double amount = args.Amount;
-        Debug.Log("##################");
-        Debug.Log(amount.ToString());
-        Debug.Log(amount);
-        Debug.Log("##################");
-        MonoBehaviour.print(
-            "HandleRewardBasedVideoRewarded event received for "
-                        + amount.ToString() + " " + type);
+        if(adType == 0){
+            GameManager.instance.adViewd = true;
+            BoxShaker.instance.GetOnce();
+        }
+        else {
+            RewardEventAds.instance.Hide();
+            freeHeartPanel.SetActive(true);
+        }
+
     }
 
     public void HandleRewardBasedVideoLeftApplication(object sender, EventArgs args)
@@ -94,11 +101,11 @@ public class AdsManager : MonoBehaviour
     public void RequestRewardedVideo(){
         #if UNITY_ANDROID
         string adUnitId = "ca-app-pub-8860756584846944/1725262447";
-#elif UNITY_IPHONE
+        #elif UNITY_IPHONE
         string adUnitId = "ca-app-pub-8860756584846944/8828305964";
-#else
+        #else
         string adUnitId = "UNKNOWN_PLATFORM";
-#endif
+        #endif
 
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("07EB17C47DEAD7454116C04CDF20E1C5")
@@ -107,10 +114,18 @@ public class AdsManager : MonoBehaviour
         this.rewardBasedVideo.LoadAd(request, adUnitId);
     }
 
-    public void ShowRewardedVideo(){
+    public void ShowRewardedVideo(int _value){
         if (rewardBasedVideo.IsLoaded())
         {
-            Debug.Log("SS");
+            adType = _value;
+            rewardBasedVideo.Show();
+        }
+    }
+
+    public void ShowFreeHeart(){
+        if (rewardBasedVideo.IsLoaded())
+        {
+            adType = 1;
             rewardBasedVideo.Show();
         }
     }

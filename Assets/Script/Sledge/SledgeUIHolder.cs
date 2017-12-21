@@ -21,7 +21,7 @@ public class SledgeUIHolder : MonoBehaviour
     }
     private void Start()
     {
-        uiPosition = Camera.main.WorldToScreenPoint(this.transform.position); 
+        //uiPosition = Camera.main.WorldToScreenPoint(this.transform.position); 
     }
 
     public void HideAndInitCounter(){
@@ -34,7 +34,6 @@ public class SledgeUIHolder : MonoBehaviour
         panel.SetActive(true);
         SledgeUIHolder.instance.UpdateCounterText();
         counterAnim.Play();
-        panel.transform.position = uiPosition + new Vector3(75, 25, 0);
     }
 
     public void UpdateCounterText(){
@@ -51,14 +50,13 @@ public class SledgeUIHolder : MonoBehaviour
         dollarText.gameObject.SetActive(true);
 
         // Set dollar text
-        var income = GameManager.instance.NowIncome;
+        var income = GameManager.instance.NowIncome * GameManager.instance.incomeMultiply;
         StringBuilder stb = new StringBuilder("+ ");
         stb.Append(income);
         stb.Append("$");
         dollarText.text = stb.ToString();
 
         GameManager.instance.ClearStack();
-        dollar.transform.position = uiPosition + new Vector3(50, 25, 0);
     }
 
     public void WhiteCounter(){

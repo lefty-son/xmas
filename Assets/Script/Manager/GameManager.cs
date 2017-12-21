@@ -20,11 +20,13 @@ public class GameManager : MonoBehaviour {
                 secondsForHalf = 1f;
                 inHouseHurray.gameObject.SetActive(true);
                 SunController.instance.daySpeed = 30;
+                FeverSlider.instance.speed = 1f;
             }
             else {
                 inHouseHurray.gameObject.SetActive(false);
                 secondsForHalf = 60f;
                 SunController.instance.daySpeed = 3;
+                FeverSlider.instance.speed = 0.3f;
             }
         }
     }
@@ -37,17 +39,34 @@ public class GameManager : MonoBehaviour {
         set {
             isRewardFever = value;
             if(isRewardFever){
-                // TODO change to coroutine.
-                incomeMultiply = 2;
+                StartCoroutine(RewardFevers());
             }
             else {
-                // TODO change to coroutine.
-                incomeMultiply = 1;
+                StopCoroutine(RewardFevers());
             }
+          
         }
     }
 
-    private int incomeMultiply;
+    IEnumerator RewardFevers(){
+        FeverSlider.instance.tappable = false;
+        incomeMultiply = 2;
+        secondsForHalf = 1f;
+        inHouseHurray.gameObject.SetActive(true);
+        SunController.instance.daySpeed = 30;
+        yield return new WaitForSeconds(10f);
+        FeverSlider.instance.Init();
+        FeverSlider.instance.tappable = true;
+		incomeMultiply = 1;
+        inHouseHurray.gameObject.SetActive(false);
+        secondsForHalf = 60f;
+        SunController.instance.daySpeed = 3;
+        IsRewardFever = false;
+    }
+
+    public bool adViewd;
+
+    public int incomeMultiply;
 
     public float secondsForHalf;
 
@@ -179,4 +198,9 @@ public class GameManager : MonoBehaviour {
         var r = Random.Range(0, PrefManager.instance.GetGiftTier() + 1);
         return r;
     }
+
+    //IEnumerator FreeHeartTimer(){
+    //    while(isRunning){
+    //    }
+    //}
 }
