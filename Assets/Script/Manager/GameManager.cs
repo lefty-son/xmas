@@ -128,6 +128,8 @@ public class GameManager : MonoBehaviour {
             PrefManager.instance.SetHeart(heart);
             UIManager.instance.UpdateHeart();
             ShopManager.instance.UpdateAllUI();
+            GiftManager.instance.CheckGiftTier();
+
         }
     }
 
@@ -149,6 +151,7 @@ public class GameManager : MonoBehaviour {
         isStart = false;
         isRunning = true;
         secondsForHalf = 60f;
+        StartCoroutine(FreeHeartTimer());
     }
 
     public void NextWave(){
@@ -174,14 +177,14 @@ public class GameManager : MonoBehaviour {
             Dollar = Dollar - _value;
         }
         else {
-            Debug.Log("NO MONEY!");
             return;
         }
     }
 
     public void EarnHeart(int _value){
-        Debug.Log("ERAN HEART " + _value);
+        
         Heart = Heart + _value;
+
     }
 
     public void SpendHeart(int _value){
@@ -189,18 +192,25 @@ public class GameManager : MonoBehaviour {
             Heart = Heart - _value;
         }
         else {
-            Debug.Log("NO HEART!");
+            
             return;
         }
     }
 
     public int GetIndex(){
-        var r = Random.Range(0, PrefManager.instance.GetGiftTier() + 1);
+        // Dynamic
+        //var r = Random.Range(0, PrefManager.instance.GetGiftTier() + 1);
+
+        // Static
+        var r = PrefManager.instance.GetGiftTier();
         return r;
     }
 
-    //IEnumerator FreeHeartTimer(){
-    //    while(isRunning){
-    //    }
-    //}
+    IEnumerator FreeHeartTimer(){
+        while(isRunning){
+            yield return new WaitForSeconds(30f);
+            
+            RewardEventAds.instance.Occur();
+        }
+    }
 }

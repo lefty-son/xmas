@@ -18,7 +18,6 @@ public class GiftManager : MonoBehaviour {
     private void Awake()
     {
         if (instance == null) instance = this;
-
     }
 
     private void OnEnable()
@@ -40,7 +39,7 @@ public class GiftManager : MonoBehaviour {
             priceText[i].text = "";
         }
         
-        Debug.Log("CHECKING TIER ...");
+
         for (int i = 0; i <= PrefManager.instance.GetGiftTier() + 1; i++){
             gifts[i].SetActive(true);
             price[i].SetActive(false);
@@ -59,14 +58,16 @@ public class GiftManager : MonoBehaviour {
 
 
 
-        Debug.Log(cost);
+
         if (PrefManager.instance.GetHeart() >= cost)
         {
             // Enable unlock;
             unlock[PrefManager.instance.GetGiftTier() + 1].interactable = true;
+            UIManager.instance.PlayAlert();
         }
         else {
             unlock[PrefManager.instance.GetGiftTier() + 1].interactable = false;
+            UIManager.instance.StopAlert();
         }
 
     }

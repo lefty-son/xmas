@@ -14,10 +14,10 @@ public class ShopManager : MonoBehaviour {
     private readonly int INIT_SLED_SPEED = 10;
 
     // Modify here to adjust max level
-    private readonly int MAXLVL_UPGRADE_SANTA = 7;
-    private readonly int MAXLVL_UPGRADE_CONVEY = 7;
-    private readonly int MAXLVL_SLED_MAX = 7;
-    private readonly int MAXLVL_SLED_SPEED = 7;
+    private readonly int MAXLVL_UPGRADE_SANTA = 14;
+    private readonly int MAXLVL_UPGRADE_CONVEY = 14;
+    private readonly int MAXLVL_SLED_MAX = 14;
+    private readonly int MAXLVL_SLED_SPEED = 14;
 
     public Text santaCost, conveyCost, sledMaxCost, sledSpeedCost;
     public Button santaButton, conveyButton, sledMaxButton, sledSpeedButton;
@@ -107,28 +107,28 @@ public class ShopManager : MonoBehaviour {
     #region Upgrades
 
     public void UpgradeSanta(){
-        GameManager.instance.SpendDollar(INIT_UPGRADE_SANTA * (PrefManager.instance.GetSantaLevel() + 1));
+        GameManager.instance.SpendDollar(INIT_UPGRADE_SANTA * (PrefManager.instance.GetSantaLevel() + 1) * (PrefManager.instance.GetSantaLevel() + 1));
         PrefManager.instance.SetSantaLevel();
         UpdateAllUI();
     }
 
     public void UpgradeConvey()
     {
-        GameManager.instance.SpendDollar(INIT_UPGRADE_CONVEY * (PrefManager.instance.GetConveyLevel() + 1));
+        GameManager.instance.SpendDollar(INIT_UPGRADE_CONVEY * (PrefManager.instance.GetConveyLevel() + 1) * (PrefManager.instance.GetConveyLevel() + 1));
         PrefManager.instance.SetConveySpeed();
         UpdateAllUI();
     }
 
     public void UpgradeSledMax()
     {
-        GameManager.instance.SpendDollar(INIT_SLED_MAX * (PrefManager.instance.GetSledMaxLevel() + 1));
+        GameManager.instance.SpendDollar(INIT_SLED_MAX * (PrefManager.instance.GetSledMaxLevel() + 1) * (PrefManager.instance.GetSledMaxLevel() + 1));
         PrefManager.instance.SetSledMaxLevel();
         UpdateAllUI();
     }
 
     public void UpgradeSledSpeed()
     {
-        GameManager.instance.SpendDollar(INIT_SLED_SPEED * (PrefManager.instance.GetSledSpeedLevel() + 1));
+        GameManager.instance.SpendDollar(INIT_SLED_SPEED * (PrefManager.instance.GetSledSpeedLevel() + 1) * (PrefManager.instance.GetSledSpeedLevel() + 1));
         PrefManager.instance.SetSledSpeedLevel();
         UpdateAllUI();
     }
@@ -147,6 +147,7 @@ public class ShopManager : MonoBehaviour {
     private void UpdateSanta(){
         var cost = INIT_UPGRADE_SANTA * (PrefManager.instance.GetSantaLevel() + 1) * (PrefManager.instance.GetSantaLevel() + 1) ;
         santaSlider.value = PrefManager.instance.GetSantaLevel();
+        santaSlider.maxValue = MAXLVL_UPGRADE_SANTA;
         if(GameManager.instance.Dollar >= cost && PrefManager.instance.GetSantaLevel() < MAXLVL_UPGRADE_SANTA){
             santaButton.interactable = true;
         }
@@ -160,6 +161,7 @@ public class ShopManager : MonoBehaviour {
     {
         var cost = INIT_UPGRADE_CONVEY * (PrefManager.instance.GetConveyLevel() + 1) * (PrefManager.instance.GetConveyLevel() + 1);
         conveySlider.value = PrefManager.instance.GetConveyLevel();
+        conveySlider.maxValue = MAXLVL_UPGRADE_CONVEY;
         if (GameManager.instance.Dollar >= cost && PrefManager.instance.GetConveyLevel() < MAXLVL_UPGRADE_CONVEY)
         {
             conveyButton.interactable = true;
@@ -175,6 +177,7 @@ public class ShopManager : MonoBehaviour {
     {
         var cost = INIT_SLED_MAX * (PrefManager.instance.GetSledMaxLevel() + 1) * (PrefManager.instance.GetSledMaxLevel() + 1);
         sledMaxSlider.value = PrefManager.instance.GetSledMaxLevel();
+        sledMaxSlider.maxValue = MAXLVL_SLED_MAX;
             if (GameManager.instance.Dollar >= cost && PrefManager.instance.GetSledMaxLevel() < MAXLVL_SLED_MAX)
         {
             sledMaxButton.interactable = true;
@@ -188,8 +191,9 @@ public class ShopManager : MonoBehaviour {
 
     private void UpdateSledSpeed()
     {
-        var cost = INIT_SLED_SPEED * (PrefManager.instance.GetSledSpeedLevel() + 1) * (PrefManager.instance.GetSledSpeedLevel() + 1);;
+        var cost = INIT_SLED_SPEED * (PrefManager.instance.GetSledSpeedLevel() + 1) * (PrefManager.instance.GetSledSpeedLevel() + 1);
         sledSpeedSlider.value = PrefManager.instance.GetSledSpeedLevel();
+        sledSpeedSlider.maxValue = MAXLVL_SLED_SPEED;
         if (GameManager.instance.Dollar >= cost && PrefManager.instance.GetSledSpeedLevel() < MAXLVL_SLED_SPEED)
         {
             sledSpeedButton.interactable = true;

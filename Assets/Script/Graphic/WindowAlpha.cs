@@ -10,7 +10,7 @@ public class WindowAlpha : MonoBehaviour {
 	void Start () {
         rend = GetComponent<MeshRenderer>();
         rend.material.color = new Color(1f, 1f, 1f, 0f);
-        //Debug.Log(rend.material.color);
+
 	}
 	
 	// Update is called once per frame

@@ -16,7 +16,7 @@ public class UIPat : MonoBehaviour {
 
     IEnumerator Pat()
     {
-        Debug.Log("SE");
+        
         float time = .1f;
         float elapse = 0f;
         Vector3 rand = new Vector3(Random.Range(.75f, 1.25f), Random.Range(.75f, 1.25f), Random.Range(.75f, 1.25f));

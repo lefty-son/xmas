@@ -27,7 +27,7 @@ public class Tap : MonoBehaviour {
     }
 
     public void NextWave(){
-        Debug.Log("Sibal");
+        
         foreach(BoxPat bp in boxPat){
             bp.done = false;
             bp.transform.localScale = new Vector3(1f, 0.01f, 1f); 

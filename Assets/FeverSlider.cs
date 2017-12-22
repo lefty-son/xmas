@@ -21,7 +21,13 @@ public class FeverSlider : MonoBehaviour {
         slider.maxValue = 10f;
         slider.value = 0f;
         speed = 0;
-        power = 0.125f;
+        if(PrefManager.instance.GetGiftTier() == 0){
+            power = 0.275f;
+        }
+        else {
+            power = 0.125f;
+        }
+
     }
 
     public void Init(){

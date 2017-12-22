@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour {
 
     public GameObject upgradePanel;
 
+    public GameObject[] alerts;
+
     public Button tap;
 
     public Animation maxStackAnim;
@@ -58,7 +60,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ToggleUpgradePanel(){
-
+        GiftManager.instance.CheckGiftTier();
         if(!upgradePanel.activeInHierarchy){
             Bye();
         }
@@ -69,15 +71,23 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ShowRewardOccur(){
-        var r = Random.Range(0, 2);
-        if(r == 0){
+        if(PrefManager.instance.GetGiftTier() == 0){
             rewardOneBox.SetActive(true);
-            //hello.SetActive(!hello.activeInHierarchy);
         }
         else {
-            rewardMultipleBox.SetActive(true);
-            //hello.SetActive(!hello.activeInHierarchy);
+            var r = Random.Range(0, 2);
+            if (r == 0)
+            {
+                rewardOneBox.SetActive(true);
+                //hello.SetActive(!hello.activeInHierarchy);
+            }
+            else
+            {
+                rewardMultipleBox.SetActive(true);
+                //hello.SetActive(!hello.activeInHierarchy);
+            }
         }
+
         Bye();
     }
 
@@ -89,5 +99,15 @@ public class UIManager : MonoBehaviour {
     public void Bye(){
         hello.transform.localScale = Vector3.zero;
         bye.transform.localScale = Vector3.zero;   
+    }
+
+    public void PlayAlert(){
+        alerts[0].SetActive(true);
+        alerts[1].SetActive(true);
+    }
+
+    public void StopAlert(){
+        alerts[0].SetActive(false);
+        alerts[1].SetActive(false);
     }
 }
