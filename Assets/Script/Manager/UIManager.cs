@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
     public GameObject creditPanel;
-
+    public GameObject tutorial;
     public GameObject hello, bye;
 
     public Animation dollarAnim;
@@ -60,6 +60,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void ToggleUpgradePanel(){
+        tutorial.SetActive(false);
         GiftManager.instance.CheckGiftTier();
         if(!upgradePanel.activeInHierarchy){
             Bye();
@@ -75,6 +76,7 @@ public class UIManager : MonoBehaviour {
             rewardOneBox.SetActive(true);
         }
         else {
+            FeverSlider.instance.power = 0.125f;
             var r = Random.Range(0, 2);
             if (r == 0)
             {

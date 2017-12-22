@@ -17,6 +17,8 @@ public class Localizer : MonoBehaviour {
 
     private readonly string free_heart = "free_heart";
 
+    private readonly string tutorual = "tutorial";
+
     #endregion
 
     #region NAMES
@@ -84,6 +86,8 @@ public class Localizer : MonoBehaviour {
             dict.Add(get_just, "No thanks.");
 
             dict.Add(free_heart, "Free Heart!");
+
+            dict.Add(tutorual, "You've just earned some hearts!\n\nNow you can unlock a new gift on shop!");
         }
         // KO
         else if(lang == 1){
@@ -112,6 +116,8 @@ public class Localizer : MonoBehaviour {
             dict.Add(get_just, "그냥 받기.");
 
             dict.Add(free_heart, "무료 하트!");
+
+            dict.Add(tutorual, "당신은 방금 하트를 얻었습니다!\n\n이제 상점에서 새로운 선물을 열 수 있습니다!");
         }
         // CN
         else if(lang == 2){
@@ -140,6 +146,8 @@ public class Localizer : MonoBehaviour {
             dict.Add(get_just, "不用了，谢谢。");
 
             dict.Add(free_heart, "免费的心！");
+
+            dict.Add(tutorual, "你刚刚赢得一些心！\n\n现在你可以在店里解锁一件新的礼物！");
         }
         // JP
         else if (lang == 3)
@@ -169,6 +177,8 @@ public class Localizer : MonoBehaviour {
             dict.Add(get_just, "いいえ結構です。");
 
             dict.Add(free_heart, "無料ハート！");
+
+            dict.Add(tutorual, "あなたはちょうどいくつかの心を得た！\n\n今、あなたは店で新しい贈り物を開くことができます！");
         }
         else if(lang == 4)
         {
@@ -197,6 +207,8 @@ public class Localizer : MonoBehaviour {
             dict.Add(get_just, "Ei kiitos.");
 
             dict.Add(free_heart, "Vapaa sydän!");
+
+            dict.Add(tutorual, "Olet juuri ansainnut joitain sydämiä!\n\nNyt voit avata uuden lahjan kaupassa!");
         }
     }
 

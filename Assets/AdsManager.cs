@@ -12,13 +12,16 @@ public class AdsManager : MonoBehaviour
 
     public int adType;
 
+
+
+    [SerializeField] private string appId;
+    [SerializeField] private RewardBasedVideoAd rewardBasedVideo;
+    [SerializeField] private BannerView bannerView;
+
     private void Awake()
     {
         if (instance == null) instance = this;
     }
-
-    [SerializeField] private string appId;
-    [SerializeField] private RewardBasedVideoAd rewardBasedVideo;
 
     // Use this for initialization
     void Start()
@@ -31,7 +34,40 @@ public class AdsManager : MonoBehaviour
         appId = "UNKNOWN_PLATFORM";
 #endif
 
+#if UNITY_ANDROID
+        string adUnitId = "ca-app-pub-8860756584846944/6335882298";
+#elif UNITY_IPHONE
+        string adUnitId = "ca-app-pub-8860756584846944/1811024368";
+#else
+        string adUnitId = "unexpected_platform";
+#endif
+
         MobileAds.Initialize(appId);
+
+        #region BANNER AD
+
+        bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Top);
+        // Called when an ad request has successfully loaded.
+        bannerView.OnAdLoaded += HandleOnAdLoaded;
+        // Called when an ad request failed to load.
+        bannerView.OnAdFailedToLoad += HandleOnAdFailedToLoad;
+        // Called when an ad is clicked.
+        bannerView.OnAdOpening += HandleOnAdOpened;
+        // Called when the user returned from the app after an ad click.
+        bannerView.OnAdClosed += HandleOnAdClosed;
+
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().
+        AddTestDevice(AdRequest.TestDeviceSimulator).
+        AddTestDevice("07EB17C47DEAD7454116C04CDF20E1C5").
+        Build();
+
+        // Load the banner with the request.
+        bannerView.LoadAd(request);
+        HideBanner();
+        //ShowBanner();
+
+        #endregion
 
         adType = 0;
 
@@ -48,6 +84,41 @@ public class AdsManager : MonoBehaviour
 
         this.RequestRewardedVideo();
 
+    }
+
+    public void ShowBanner(){
+        Debug.Log("####");
+        bannerView.Show();
+    }
+
+    public void HideBanner(){
+        bannerView.Hide();
+    }
+
+    public void HandleOnAdLoaded(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdLoaded event received");
+    }
+
+    public void HandleOnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
+    {
+        MonoBehaviour.print("HandleFailedToReceiveAd event received with message: "
+                            + args.Message);
+    }
+
+    public void HandleOnAdOpened(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdOpened event received");
+    }
+
+    public void HandleOnAdClosed(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdClosed event received");
+    }
+
+    public void HandleOnAdLeftApplication(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdLeftApplication event received");
     }
 
     public void HandleRewardBasedVideoLoaded(object sender, EventArgs args)
@@ -99,13 +170,13 @@ public class AdsManager : MonoBehaviour
     }
 	
     public void RequestRewardedVideo(){
-        #if UNITY_ANDROID
+#if UNITY_ANDROID
         string adUnitId = "ca-app-pub-8860756584846944/1725262447";
-        #elif UNITY_IPHONE
+#elif UNITY_IPHONE
         string adUnitId = "ca-app-pub-8860756584846944/8828305964";
-        #else
+#else
         string adUnitId = "UNKNOWN_PLATFORM";
-        #endif
+#endif
 
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("07EB17C47DEAD7454116C04CDF20E1C5")

@@ -3044,7 +3044,7 @@ Transform:
   m_GameObject: {fileID: 1937975743206646}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.7, z: 0.8}
   m_Children: []
   m_Father: {fileID: 4747478926626162}
   m_RootOrder: 0
@@ -3354,7 +3354,7 @@ Transform:
   m_GameObject: {fileID: 1479024600568342}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.85, z: 0.6}
   m_Children: []
   m_Father: {fileID: 4032235244366976}
   m_RootOrder: 0
@@ -3823,7 +3823,7 @@ Transform:
   m_GameObject: {fileID: 1712329450642136}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 4369485589828636}
   m_RootOrder: 0
@@ -3901,7 +3901,7 @@ Transform:
   m_GameObject: {fileID: 1389859819626802}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.8, z: 0.9}
   m_Children: []
   m_Father: {fileID: 4271894435985694}
   m_RootOrder: 0
@@ -4010,7 +4010,7 @@ Transform:
   m_GameObject: {fileID: 1426221224682422}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.8, z: 0.64}
   m_Children: []
   m_Father: {fileID: 4286241631952784}
   m_RootOrder: 0
@@ -4051,7 +4051,7 @@ Transform:
   m_GameObject: {fileID: 1222068703917018}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.9, z: 0.9}
   m_Children: []
   m_Father: {fileID: 4722402510807802}
   m_RootOrder: 0
@@ -4697,7 +4697,7 @@ Transform:
   m_GameObject: {fileID: 1613263627140094}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.9, z: 0.8}
   m_Children: []
   m_Father: {fileID: 4767589395720032}
   m_RootOrder: 0
@@ -10771,8 +10771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 1
-  dizziness: 0.3
+  dollar: 305
+  dizziness: 0.13
 --- !u!114 &114068654355990492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10784,8 +10784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 1
-  dizziness: 0.3
+  dollar: 200
+  dizziness: 0.16
 --- !u!114 &114072388647980062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11083,8 +11083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 1
-  dizziness: 0.3
+  dollar: 156
+  dizziness: 0.18
 --- !u!114 &114333646741939130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11108,7 +11108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dollar: 4
-  dizziness: 0.15
+  dizziness: 0.28
 --- !u!114 &114384926605108994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11155,8 +11155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 1
-  dizziness: 0.3
+  dollar: 128
+  dizziness: 0.2
 --- !u!114 &114456175007436046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11168,8 +11168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 1
-  dizziness: 0.3
+  dollar: 32
+  dizziness: 0.25
 --- !u!114 &114456734138639818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11193,8 +11193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 1
-  dizziness: 0.3
+  dollar: 240
+  dizziness: 0.15
 --- !u!114 &114467008938115884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11217,8 +11217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 1
-  dizziness: 0.3
+  dollar: 370
+  dizziness: 0.11
 --- !u!114 &114498067537932120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11390,8 +11390,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 10
-  dizziness: 0.1
+  dollar: 8
+  dizziness: 0.27
 --- !u!114 &114651036576568094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11438,7 +11438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dollar: 2
-  dizziness: 0.25
+  dizziness: 0.29
 --- !u!114 &114722309319752138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11530,8 +11530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 1
-  dizziness: 0.3
+  dollar: 16
+  dizziness: 0.26
 --- !u!114 &114813346801786008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11600,8 +11600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 1
-  dizziness: 0.3
+  dollar: 64
+  dizziness: 0.24
 --- !u!114 &114903953756674620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11670,8 +11670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 1
-  dizziness: 0.3
+  dollar: 410
+  dizziness: 0.1
 --- !u!114 &114935814895219276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11718,8 +11718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 1
-  dizziness: 0.3
+  dollar: 96
+  dizziness: 0.22
 --- !u!114 &114965506755393500
 MonoBehaviour:
   m_ObjectHideFlags: 1

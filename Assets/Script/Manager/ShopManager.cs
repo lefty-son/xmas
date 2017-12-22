@@ -14,10 +14,10 @@ public class ShopManager : MonoBehaviour {
     private readonly int INIT_SLED_SPEED = 10;
 
     // Modify here to adjust max level
-    private readonly int MAXLVL_UPGRADE_SANTA = 14;
-    private readonly int MAXLVL_UPGRADE_CONVEY = 14;
-    private readonly int MAXLVL_SLED_MAX = 14;
-    private readonly int MAXLVL_SLED_SPEED = 14;
+    private readonly int MAXLVL_UPGRADE_SANTA = 10;
+    private readonly int MAXLVL_UPGRADE_CONVEY = 30;
+    private readonly int MAXLVL_SLED_MAX = 30;
+    private readonly int MAXLVL_SLED_SPEED = 30;
 
     public Text santaCost, conveyCost, sledMaxCost, sledSpeedCost;
     public Button santaButton, conveyButton, sledMaxButton, sledSpeedButton;

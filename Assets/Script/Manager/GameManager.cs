@@ -208,8 +208,7 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator FreeHeartTimer(){
         while(isRunning){
-            yield return new WaitForSeconds(30f);
-            
+            yield return new WaitForSeconds(240f);
             RewardEventAds.instance.Occur();
         }
     }

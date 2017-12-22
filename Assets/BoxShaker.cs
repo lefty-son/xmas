@@ -64,8 +64,15 @@ public class BoxShaker : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
         boxImg.transform.localScale = Vector3.zero;
+
         var r = Random.Range(0, 3);
         heartNumber = r;
+
+        if (PrefManager.instance.GetGiftTier() == 0)
+        {
+            r = 1;
+            heartNumber = 1;
+        }
         getTwice.gameObject.SetActive(true);
         getOnce.gameObject.SetActive(true);
         t_GetTwice.SetActive(true);

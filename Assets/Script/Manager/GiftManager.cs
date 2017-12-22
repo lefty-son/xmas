@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Text;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +12,9 @@ public class GiftManager : MonoBehaviour {
     public Button[] unlock;
     public Image[] holder;
     public Text[] priceText;
+    public Text[] dollarPriceText;
     public GameObject shaker;
+    public readonly int[] costInt= { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 } ;
 
     public readonly int[] giftCosts = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14};
 
@@ -19,6 +22,7 @@ public class GiftManager : MonoBehaviour {
     {
         if (instance == null) instance = this;
     }
+
 
     private void OnEnable()
     {
@@ -30,6 +34,7 @@ public class GiftManager : MonoBehaviour {
       
 
         for (int i = 0; i < gifts.Length; i++){
+            
             gifts[i].SetActive(false);
             unlock[i].onClick.AddListener(AnimUnlock);
             unlock[i].gameObject.SetActive(false);
@@ -37,6 +42,10 @@ public class GiftManager : MonoBehaviour {
             _name[i].gameObject.SetActive(true);
             //price[i].gameObject.SetActive(false);
             priceText[i].text = "";
+            //Debug.Log(costInt[i]);
+            StringBuilder stb = new StringBuilder(costInt[i].ToString());
+            stb.Append("$");
+            dollarPriceText[i].text = stb.ToString();
         }
         
 
@@ -64,6 +73,10 @@ public class GiftManager : MonoBehaviour {
             // Enable unlock;
             unlock[PrefManager.instance.GetGiftTier() + 1].interactable = true;
             UIManager.instance.PlayAlert();
+            if(PlayerPrefs.GetInt("TUTORIAL") == 0){
+                UIManager.instance.tutorial.SetActive(true);
+                PlayerPrefs.SetInt("TUTORIAL", 1);
+            }
         }
         else {
             unlock[PrefManager.instance.GetGiftTier() + 1].interactable = false;

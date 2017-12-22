@@ -10,7 +10,7 @@ public class GiftMovement : MonoBehaviour {
     public void DisableDeliverFor_a_Moment(){
         btn.interactable = false;
     }
-  
+
     public void Init(){
         btn.interactable = true;
         GiftSpawner.instance.ConveyorIn();

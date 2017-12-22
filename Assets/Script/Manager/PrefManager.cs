@@ -13,6 +13,8 @@ public class PrefManager : MonoBehaviour
     private readonly string SHOP_TEMP = "SHOP_TEMP";
     private readonly string LANGUA = "LANGUA";
 
+    private readonly string TUTORIAL = "TUTORIAL";
+
     private readonly string SLED_MAX_LEVEL = "SLED_MAX_LEVEL";
     private readonly string SLED_SPEED_LEVEL = "SLED_SPEED_LEVEL";
     private readonly string SANTA_LEVEL = "SANTA_LEVEL";
@@ -37,7 +39,7 @@ public class PrefManager : MonoBehaviour
             // A new user
             PlayerPrefs.SetInt(FIRST_VISIT, 1);
             PlayerPrefs.SetInt(DOLLAR, 0);
-            PlayerPrefs.SetInt(SHOP_TEMP, 0);
+            PlayerPrefs.SetInt(SHOP_TEMP, 2);
             PlayerPrefs.SetInt(HEART, 0);
 
             PlayerPrefs.SetInt(SANTA_LEVEL, 0);
@@ -45,6 +47,8 @@ public class PrefManager : MonoBehaviour
             PlayerPrefs.SetInt(SLED_MAX_LEVEL, 0);
             PlayerPrefs.SetInt(SLED_SPEED_LEVEL, 0);
             PlayerPrefs.SetInt(GIFT_TIER, 0);
+
+            PlayerPrefs.SetInt(TUTORIAL, 0);
 
             if (Application.systemLanguage == SystemLanguage.English)
             {
@@ -191,11 +195,13 @@ public class PrefManager : MonoBehaviour
         GameManager.instance.Dollar = 10000;
         GameManager.instance.Heart = 100;
         PlayerPrefs.SetInt(GIFT_TIER, 1);
+        AdsManager.instance.ShowBanner();
     }
 
     public void ResetAll()
     {
         PlayerPrefs.DeleteAll();
+        AdsManager.instance.HideBanner();
     }
 
     #endregion

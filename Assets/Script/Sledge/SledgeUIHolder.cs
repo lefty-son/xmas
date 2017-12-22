@@ -17,7 +17,6 @@ public class SledgeUIHolder : MonoBehaviour
     private void Awake()
     {
         if (instance == null) instance = this;
-
     }
     private void Start()
     {
@@ -26,7 +25,6 @@ public class SledgeUIHolder : MonoBehaviour
 
     public void HideAndInitCounter(){
         panel.SetActive(false);
-
         WhiteCounter();
     }
 
