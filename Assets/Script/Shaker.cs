@@ -85,7 +85,7 @@ public class Shaker : MonoBehaviour {
         // Spend Heart;
         GameManager.instance.SpendHeart(GiftManager.instance.giftCosts[PrefManager.instance.GetGiftTier()]);
         PrefManager.instance.SetGiftTier();
-
+        SoundManager.instance.Gratz();
         GiftManager.instance.CheckGiftTier();
     }
 

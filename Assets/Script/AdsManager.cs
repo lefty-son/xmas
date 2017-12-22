@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using GoogleMobileAds;
 using GoogleMobileAds.Api;
@@ -87,7 +88,6 @@ public class AdsManager : MonoBehaviour
     }
 
     public void ShowBanner(){
-        Debug.Log("####");
         bannerView.Show();
     }
 
@@ -105,6 +105,8 @@ public class AdsManager : MonoBehaviour
         MonoBehaviour.print("HandleFailedToReceiveAd event received with message: "
                             + args.Message);
     }
+
+   
 
     public void HandleOnAdOpened(object sender, EventArgs args)
     {

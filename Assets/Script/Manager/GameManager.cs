@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+
     private bool isRewardFever;
     public bool IsRewardFever {
         get {
@@ -55,7 +56,6 @@ public class GameManager : MonoBehaviour {
         inHouseHurray.gameObject.SetActive(true);
         SunController.instance.daySpeed = 30;
         yield return new WaitForSeconds(10f);
-        FeverSlider.instance.Init();
         FeverSlider.instance.tappable = true;
 		incomeMultiply = 1;
         inHouseHurray.gameObject.SetActive(false);
@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour {
         secondsForHalf = 60f;
         StartCoroutine(FreeHeartTimer());
     }
-
+  
     public void NextWave(){
         Index = 0;
         Tap.instance.NextWave();
@@ -208,7 +208,7 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator FreeHeartTimer(){
         while(isRunning){
-            yield return new WaitForSeconds(240f);
+            yield return new WaitForSeconds(200f);
             RewardEventAds.instance.Occur();
         }
     }

@@ -18,6 +18,7 @@ public class RewardOccur : MonoBehaviour {
     }
 
     public void Occurs(){
+        SoundManager.instance.Alert();
         anim.Play();
         transform.localScale = Vector3.one;
     }

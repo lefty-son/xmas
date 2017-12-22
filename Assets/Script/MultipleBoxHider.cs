@@ -25,12 +25,14 @@ public class MultipleBoxHider : MonoBehaviour {
     {
         foreach(GameObject go in boxes){
             go.transform.localScale = Vector3.one;
+            go.GetComponent<Button>().interactable = true;
         }
     }
 
     public void AnimateHide(){
         foreach (GameObject go in boxes)
         {
+            go.GetComponent<Button>().interactable = false;
             if(!go.GetComponent<MultipleBoxShaker>().chosen){
                 go.GetComponent<Animation>().Play();
             }
@@ -50,10 +52,12 @@ public class MultipleBoxHider : MonoBehaviour {
             goldText.text = gold.ToString();
             rewards[0].SetActive(true);
             GameManager.instance.EarnDolloar(gold);
+            SoundManager.instance.Alert();
         }
         else {
             // fever
             rewards[1].SetActive(true);
+            SoundManager.instance.Gratz();
         }
 
     }

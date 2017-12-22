@@ -23,6 +23,8 @@ public class ShopManager : MonoBehaviour {
     public Button santaButton, conveyButton, sledMaxButton, sledSpeedButton;
     public Image upgradeNavi, sledNavi, giftNavi, currencyNavi;
     public Slider santaSlider, conveySlider, sledMaxSlider, sledSpeedSlider;
+    public Animation santaSliderAnim, conveySliderAnim, sledMaxSliderAnim, sledSpeedSliderAnim;
+
 
     public GameObject upgrade, sledge, gift, currency;
 
@@ -109,6 +111,7 @@ public class ShopManager : MonoBehaviour {
     public void UpgradeSanta(){
         GameManager.instance.SpendDollar(INIT_UPGRADE_SANTA * (PrefManager.instance.GetSantaLevel() + 1) * (PrefManager.instance.GetSantaLevel() + 1));
         PrefManager.instance.SetSantaLevel();
+        santaSliderAnim.Play();
         UpdateAllUI();
     }
 
@@ -116,6 +119,7 @@ public class ShopManager : MonoBehaviour {
     {
         GameManager.instance.SpendDollar(INIT_UPGRADE_CONVEY * (PrefManager.instance.GetConveyLevel() + 1) * (PrefManager.instance.GetConveyLevel() + 1));
         PrefManager.instance.SetConveySpeed();
+        conveySliderAnim.Play();
         UpdateAllUI();
     }
 
@@ -123,6 +127,7 @@ public class ShopManager : MonoBehaviour {
     {
         GameManager.instance.SpendDollar(INIT_SLED_MAX * (PrefManager.instance.GetSledMaxLevel() + 1) * (PrefManager.instance.GetSledMaxLevel() + 1));
         PrefManager.instance.SetSledMaxLevel();
+        sledMaxSliderAnim.Play();
         UpdateAllUI();
     }
 
@@ -130,6 +135,7 @@ public class ShopManager : MonoBehaviour {
     {
         GameManager.instance.SpendDollar(INIT_SLED_SPEED * (PrefManager.instance.GetSledSpeedLevel() + 1) * (PrefManager.instance.GetSledSpeedLevel() + 1));
         PrefManager.instance.SetSledSpeedLevel();
+        sledSpeedSliderAnim.Play();
         UpdateAllUI();
     }
 
@@ -145,6 +151,7 @@ public class ShopManager : MonoBehaviour {
     }
 
     private void UpdateSanta(){
+        
         var cost = INIT_UPGRADE_SANTA * (PrefManager.instance.GetSantaLevel() + 1) * (PrefManager.instance.GetSantaLevel() + 1) ;
         santaSlider.value = PrefManager.instance.GetSantaLevel();
         santaSlider.maxValue = MAXLVL_UPGRADE_SANTA;
@@ -159,6 +166,7 @@ public class ShopManager : MonoBehaviour {
 
     private void UpdateConvey()
     {
+        
         var cost = INIT_UPGRADE_CONVEY * (PrefManager.instance.GetConveyLevel() + 1) * (PrefManager.instance.GetConveyLevel() + 1);
         conveySlider.value = PrefManager.instance.GetConveyLevel();
         conveySlider.maxValue = MAXLVL_UPGRADE_CONVEY;
@@ -175,6 +183,7 @@ public class ShopManager : MonoBehaviour {
 
     private void UpdateSledMax()
     {
+        
         var cost = INIT_SLED_MAX * (PrefManager.instance.GetSledMaxLevel() + 1) * (PrefManager.instance.GetSledMaxLevel() + 1);
         sledMaxSlider.value = PrefManager.instance.GetSledMaxLevel();
         sledMaxSlider.maxValue = MAXLVL_SLED_MAX;
@@ -191,6 +200,7 @@ public class ShopManager : MonoBehaviour {
 
     private void UpdateSledSpeed()
     {
+        
         var cost = INIT_SLED_SPEED * (PrefManager.instance.GetSledSpeedLevel() + 1) * (PrefManager.instance.GetSledSpeedLevel() + 1);
         sledSpeedSlider.value = PrefManager.instance.GetSledSpeedLevel();
         sledSpeedSlider.maxValue = MAXLVL_SLED_SPEED;

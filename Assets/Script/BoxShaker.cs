@@ -78,7 +78,7 @@ public class BoxShaker : MonoBehaviour {
         t_GetTwice.SetActive(true);
         t_GetOnce.SetActive(true);
         hearts[r].SetActive(true);
-
+        SoundManager.instance.Gratz();
         fader.SetActive(true);
         hurray.SetActive(true);
    

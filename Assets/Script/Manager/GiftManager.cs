@@ -14,7 +14,7 @@ public class GiftManager : MonoBehaviour {
     public Text[] priceText;
     public Text[] dollarPriceText;
     public GameObject shaker;
-    public readonly int[] costInt= { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 } ;
+    public readonly int[] costInt= { 1, 2, 4, 8, 16, 32, 64, 96, 128, 156, 200, 240, 305, 370, 410 } ;
 
     public readonly int[] giftCosts = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14};
 
@@ -49,14 +49,18 @@ public class GiftManager : MonoBehaviour {
         }
         
 
-        for (int i = 0; i <= PrefManager.instance.GetGiftTier() + 1; i++){
+        for (int i = 0; i <= PrefManager.instance.GetGiftTier(); i++){
             gifts[i].SetActive(true);
             price[i].SetActive(false);
             priceText[i].text = "";
         }
 
-        var cost = giftCosts[PrefManager.instance.GetGiftTier()];
+        if(PrefManager.instance.GetGiftTier() == 14){
+            return;
+        }
 
+        var cost = giftCosts[PrefManager.instance.GetGiftTier()];
+        gifts[PrefManager.instance.GetGiftTier() + 1].SetActive(true);
         priceText[PrefManager.instance.GetGiftTier() + 1].text = cost.ToString();
         holder[PrefManager.instance.GetGiftTier() + 1].color = Color.black;
         _name[PrefManager.instance.GetGiftTier() + 1].SetActive(false);
@@ -86,6 +90,7 @@ public class GiftManager : MonoBehaviour {
     }
 
     public void AnimUnlock(){
+        unlock[PrefManager.instance.GetGiftTier() + 1].interactable = false;
         unlock[PrefManager.instance.GetGiftTier() + 1].GetComponent<Animation>().Play();
     }
 

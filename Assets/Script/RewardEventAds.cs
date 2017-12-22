@@ -18,6 +18,7 @@ public class RewardEventAds : MonoBehaviour {
     public void Occur(){
         anim.clip = _in;
         anim.Play();
+        SoundManager.instance.Alert();
 
     }
 

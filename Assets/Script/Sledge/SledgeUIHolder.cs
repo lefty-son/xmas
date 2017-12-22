@@ -41,6 +41,11 @@ public class SledgeUIHolder : MonoBehaviour
 
         stb.Append(PrefManager.instance.GetSledMaxCalc());
         counterText.text = stb.ToString();
+
+        if(GameManager.instance.Stack == PrefManager.instance.GetSledMaxCalc()){
+            FindObjectOfType<SledgeDeliver>().Deliver();
+        }
+
     }
 
     public void Dollar(){

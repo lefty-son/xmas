@@ -17,7 +17,7 @@ public class SledgeDeliver : MonoBehaviour {
         UIManager.instance.tap.interactable = false; 
         SledgeUIHolder.instance.HideAndInitCounter();
         anim.clip = deliver;
-        if (GameManager.instance.IsFever)
+        if (GameManager.instance.IsRewardFever)
         {
             anim[deliver.name].speed = PrefManager.instance.GetSledSpeedCalc() * 2;
         }
@@ -27,12 +27,13 @@ public class SledgeDeliver : MonoBehaviour {
 
         }
         anim.Play();
+        SoundManager.instance.Drag();
     }
 
     public void Comeback(){
         BoxInSledge.instance.Init();
         anim.clip = comeback;
-        if (GameManager.instance.IsFever)
+        if (GameManager.instance.IsRewardFever)
         {
             anim[comeback.name].speed = PrefManager.instance.GetSledSpeedCalc() * 2;
         }
@@ -42,6 +43,7 @@ public class SledgeDeliver : MonoBehaviour {
 
         }
         anim.Play();
+        SoundManager.instance.Drag();
     }
 
     // Do all things when come back;

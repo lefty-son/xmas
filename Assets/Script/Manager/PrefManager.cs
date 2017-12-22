@@ -7,6 +7,8 @@ public class PrefManager : MonoBehaviour
 
     public static PrefManager instance;
 
+    public GameObject welcome;
+
     private readonly string DOLLAR = "DOLLAR";
     private readonly string HEART = "HEART";
     private readonly string FIRST_VISIT = "FIRST_VISIT";
@@ -33,9 +35,11 @@ public class PrefManager : MonoBehaviour
         if (PlayerPrefs.HasKey(FIRST_VISIT))
         {
             // Continue
+            welcome.SetActive(false);
         }
         else
         {
+            welcome.SetActive(true);
             // A new user
             PlayerPrefs.SetInt(FIRST_VISIT, 1);
             PlayerPrefs.SetInt(DOLLAR, 0);
@@ -193,8 +197,8 @@ public class PrefManager : MonoBehaviour
     public void Cheat()
     {
         GameManager.instance.Dollar = 10000;
-        GameManager.instance.Heart = 100;
-        PlayerPrefs.SetInt(GIFT_TIER, 1);
+        GameManager.instance.Heart = 500;
+        PlayerPrefs.SetInt(GIFT_TIER, 0);
         AdsManager.instance.ShowBanner();
     }
 

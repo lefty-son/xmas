@@ -29,7 +29,7 @@ public class GiftSpawner : MonoBehaviour {
         uniqIndex = GameManager.instance.GetIndex();
         giftAnimation[uniqIndex].transform.localScale = Vector3.one;
         giftAnimation[uniqIndex].clip = _in;
-        if(GameManager.instance.IsFever){
+        if(GameManager.instance.IsRewardFever){
             giftAnimation[uniqIndex][_in.name].speed = PrefManager.instance.GetConveyCalc() * 2;
         }
         else {
@@ -43,7 +43,7 @@ public class GiftSpawner : MonoBehaviour {
     {
         GiftInfoHolder.instance.HideInfo();
         giftAnimation[uniqIndex].clip = _out;
-        if (GameManager.instance.IsFever)
+        if (GameManager.instance.IsRewardFever)
         {
             giftAnimation[uniqIndex][_out.name].speed = PrefManager.instance.GetConveyCalc() * 2;
         }

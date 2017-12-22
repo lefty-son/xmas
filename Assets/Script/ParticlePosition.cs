@@ -6,7 +6,6 @@ public class ParticlePosition : MonoBehaviour {
 
     private void OnEnable()
     {
-        
         transform.localPosition = new Vector3(0, Screen.height / 2, 0);
     }
 }

@@ -46,7 +46,8 @@ public class UIManager : MonoBehaviour {
     }
 
     public void MaxStacked(){
-        maxStackAnim.Play();
+        //Debug.Log("MAXED!");
+        //maxStackAnim.Play();
     }
 
     public void UpdateDollar(){
@@ -63,9 +64,17 @@ public class UIManager : MonoBehaviour {
         tutorial.SetActive(false);
         GiftManager.instance.CheckGiftTier();
         if(!upgradePanel.activeInHierarchy){
+            // open
             Bye();
+            AdsManager.instance.HideBanner();
+
         }
         else {
+
+            // close
+            if(PrefManager.instance.GetGiftTier() != 0){
+                AdsManager.instance.ShowBanner();
+            }
             Hello();
         }
         upgradePanel.SetActive(!upgradePanel.activeInHierarchy);

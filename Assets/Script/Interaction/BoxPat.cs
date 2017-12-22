@@ -8,7 +8,7 @@ public class BoxPat : MonoBehaviour {
 
     public void TapIt(float _value){
         if(!done){
-            if(GameManager.instance.IsFever){
+            if(GameManager.instance.IsRewardFever){
                 transform.localScale += new Vector3(0f, _value * PrefManager.instance.GetSantaCalc() * 1.5f, 0f); 
             }
             else {

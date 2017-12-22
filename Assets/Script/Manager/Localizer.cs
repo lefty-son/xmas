@@ -18,6 +18,7 @@ public class Localizer : MonoBehaviour {
     private readonly string free_heart = "free_heart";
 
     private readonly string tutorual = "tutorial";
+    private readonly string welcome = "welcome";
 
     #endregion
 
@@ -88,6 +89,7 @@ public class Localizer : MonoBehaviour {
             dict.Add(free_heart, "Free Heart!");
 
             dict.Add(tutorual, "You've just earned some hearts!\n\nNow you can unlock a new gift on shop!");
+            dict.Add(welcome, "Hello Santa Claus!\n\nFrom now on, we need to send gifts to children all over the world.\n\nTouch the screen to wrap the gift.");
         }
         // KO
         else if(lang == 1){
@@ -118,6 +120,7 @@ public class Localizer : MonoBehaviour {
             dict.Add(free_heart, "무료 하트!");
 
             dict.Add(tutorual, "당신은 방금 하트를 얻었습니다!\n\n이제 상점에서 새로운 선물을 열 수 있습니다!");
+            dict.Add(welcome, "안녕 산타클로스!\n\n지금부터 전세계에 있는 어린이들에게 선물을 보내야합니다.\n\n화면을 터치하여 선물을 포장하세요.");
         }
         // CN
         else if(lang == 2){
@@ -148,6 +151,7 @@ public class Localizer : MonoBehaviour {
             dict.Add(free_heart, "免费的心！");
 
             dict.Add(tutorual, "你刚刚赢得一些心！\n\n现在你可以在店里解锁一件新的礼物！");
+            dict.Add(welcome, "圣诞老人你好！\n\n从现在开始，我们需要送礼物给世界各地的孩子。\n\n触摸屏幕以包裹礼物。");
         }
         // JP
         else if (lang == 3)
@@ -179,6 +183,7 @@ public class Localizer : MonoBehaviour {
             dict.Add(free_heart, "無料ハート！");
 
             dict.Add(tutorual, "あなたはちょうどいくつかの心を得た！\n\n今、あなたは店で新しい贈り物を開くことができます！");
+            dict.Add(welcome, "こんにちはサンタクロース！\n\n今から世界中の子供たちにプレゼントを送信します。\n\n画面をタッチして贈り物を包装します。");
         }
         else if(lang == 4)
         {
@@ -209,6 +214,7 @@ public class Localizer : MonoBehaviour {
             dict.Add(free_heart, "Vapaa sydän!");
 
             dict.Add(tutorual, "Olet juuri ansainnut joitain sydämiä!\n\nNyt voit avata uuden lahjan kaupassa!");
+            dict.Add(welcome, "Hei Joulupukki!\n\nTästä eteenpäin meidän on lähetettävä lahjoja lapsille ympäri maailmaa.\n\nKosketa näyttöä, kun haluat rajata lahjan.");
         }
     }
 
