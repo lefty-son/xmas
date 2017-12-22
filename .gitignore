@@ -6,7 +6,8 @@
 /Assets/AssetStoreTools*
 /xCode/
 /Assets/Download/
-
+/Assets/Plugins/
+/Assets/Plugin/
 # Visual Studio 2015 cache directory
 /.vs/
 
