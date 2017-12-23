@@ -45,8 +45,8 @@ public class MultipleBoxHider : MonoBehaviour {
     }
 
     public void ShowRandomReward(){
-        var r = Random.Range(0, 5); // 0 1 2 3 4
-        if(r < 3){
+        var r = Random.Range(0, 4); // 0 1 2 3 
+        if(r < 2){
             // gold
             var gold = (PrefManager.instance.GetGiftTier() + 1) * (r + 1) * (PrefManager.instance.GetSledMaxLevel() + 1) * 10;
             goldText.text = gold.ToString();
@@ -57,7 +57,7 @@ public class MultipleBoxHider : MonoBehaviour {
         else {
             // fever
             rewards[1].SetActive(true);
-            SoundManager.instance.Gratz();
+            SoundManager.instance.Alert();
         }
 
     }

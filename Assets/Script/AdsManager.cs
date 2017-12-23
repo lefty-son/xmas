@@ -59,9 +59,12 @@ public class AdsManager : MonoBehaviour
 
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().
-        AddTestDevice(AdRequest.TestDeviceSimulator).
-        AddTestDevice("07EB17C47DEAD7454116C04CDF20E1C5").
         Build();
+
+        //AdRequest request = new AdRequest.Builder().
+        //AddTestDevice(AdRequest.TestDeviceSimulator).
+        //AddTestDevice("07EB17C47DEAD7454116C04CDF20E1C5").
+        //Build();
 
         // Load the banner with the request.
         bannerView.LoadAd(request);
@@ -181,8 +184,10 @@ public class AdsManager : MonoBehaviour
 #endif
 
         // Create an empty ad request.
-        AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("07EB17C47DEAD7454116C04CDF20E1C5")
-.Build();
+        AdRequest request = new AdRequest.Builder().Build();
+
+//        AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("07EB17C47DEAD7454116C04CDF20E1C5")
+//.Build();
         // Load the rewarded video ad with the request.
         this.rewardBasedVideo.LoadAd(request, adUnitId);
     }

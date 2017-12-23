@@ -42,7 +42,7 @@ public class FeverSlider : MonoBehaviour {
     }
 
     public void SliderUp(){
-        if(!GameManager.instance.IsRewardFever && !isShown && tappable){
+        if( !isShown && tappable){
             slider.value += power;
             CheckSlider();   
         }

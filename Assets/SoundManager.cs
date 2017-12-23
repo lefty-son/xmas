@@ -23,7 +23,7 @@ public class SoundManager : MonoBehaviour {
     }
 
     public void Alert(){
-        _audio.PlayOneShot(gratz);
+        _audio.PlayOneShot(alert);
     }
 
     public void Gratz(){
