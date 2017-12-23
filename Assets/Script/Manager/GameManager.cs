@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance;
+
+    public Button tapCheck;
 
     public GameObject inHouseHurray;
 
@@ -155,6 +158,7 @@ public class GameManager : MonoBehaviour {
         isRunning = true;
         secondsForHalf = 60f;
         StartCoroutine(FreeHeartTimer());
+        StartCoroutine(IdleTapping());
     }
   
     public void NextWave(){
@@ -213,6 +217,16 @@ public class GameManager : MonoBehaviour {
         while(isRunning){
             yield return new WaitForSeconds(120f);
             RewardEventAds.instance.Occur();
+        }
+    }
+
+    IEnumerator IdleTapping(){
+        while(true){
+            while(SledgeUIHolder.instance.isDelvering){
+                yield return new WaitForSeconds(0.1f);
+            }
+            yield return new WaitForSeconds(1f);
+            Tap.instance.TapIt();
         }
     }
 }

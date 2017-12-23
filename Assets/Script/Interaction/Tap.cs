@@ -15,6 +15,9 @@ public class Tap : MonoBehaviour {
     public GiftReward[] reward;
 
     public void TapIt(){
+        if(SledgeUIHolder.instance.isDelvering){
+            return;
+        }
         GameManager.instance.isStart = true;
         StartCoroutine(Pat());
         var power = reward[GiftSpawner.instance.uniqIndex].dizziness;

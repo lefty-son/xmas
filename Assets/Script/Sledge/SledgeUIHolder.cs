@@ -12,15 +12,27 @@ public class SledgeUIHolder : MonoBehaviour
     public Animation counterAnim;
     public Text counterText;
 
+    public bool isDelvering;
+
     Vector3 uiPosition;
 
     private void Awake()
     {
         if (instance == null) instance = this;
+        isDelvering = false;
     }
     private void Start()
     {
         //uiPosition = Camera.main.WorldToScreenPoint(this.transform.position); 
+    }
+
+    public void DoingDel(){
+        isDelvering = true;
+
+    }
+
+    public void EndDel(){
+        isDelvering = false;
     }
 
     public void HideAndInitCounter(){

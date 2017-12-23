@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
+    public Animation letterButton;
+    public GameObject letter;
+
     public GameObject creditPanel;
     public GameObject tutorial;
     public GameObject hello, bye;
@@ -45,6 +48,16 @@ public class UIManager : MonoBehaviour {
         tap.interactable = true;
     }
 
+    public void StartLetter(){
+        StartCoroutine(LetterCour());
+    }
+
+    IEnumerator LetterCour(){
+        var r = Random.Range(120f, 240f);
+        yield return new WaitForSeconds(r);
+        BoardLetter();
+    }
+
     public void MaxStacked(){
         //Debug.Log("MAXED!");
         //maxStackAnim.Play();
@@ -78,6 +91,15 @@ public class UIManager : MonoBehaviour {
             Hello();
         }
         upgradePanel.SetActive(!upgradePanel.activeInHierarchy);
+    }
+
+    IEnumerator NewbieLetterCour(){
+        yield return new WaitForSeconds(45f);
+        BoardLetter();
+    }
+
+    public void NewbieLetter(){
+        StartCoroutine(NewbieLetterCour());
     }
 
     public void ShowRewardOccur(){
@@ -121,4 +143,15 @@ public class UIManager : MonoBehaviour {
         alerts[0].SetActive(false);
         alerts[1].SetActive(false);
     }
+
+    public void BoardLetter(){
+        letterButton.transform.localScale = Vector3.one;
+        letterButton.Play();
+    }
+
+    public void OpenLetter(){
+        letterButton.transform.localScale = Vector3.zero;
+        letter.SetActive(true);
+    }
+
 }

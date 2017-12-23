@@ -36,6 +36,7 @@ public class PrefManager : MonoBehaviour
         {
             // Continue
             welcome.SetActive(false);
+            UIManager.instance.StartLetter();
         }
         else
         {
@@ -74,6 +75,7 @@ public class PrefManager : MonoBehaviour
                 PlayerPrefs.SetInt(LANGUA, 4);
             }
 
+            UIManager.instance.NewbieLetter();
         }
     }
 

@@ -1,18 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoxPat : MonoBehaviour {
+    public Button checker;
     public bool done;
     private bool doing = false;
 
-    public void TapIt(float _value){
-        if(!done){
-            if(GameManager.instance.IsRewardFever){
-                transform.localScale += new Vector3(0f, _value * PrefManager.instance.GetSantaCalc() * 1.5f, 0f); 
+    public void TapIt(float _value)
+    {
+        if (!done)
+        {
+            if (GameManager.instance.IsRewardFever)
+            {
+                transform.localScale += new Vector3(0f, _value * PrefManager.instance.GetSantaCalc() * 1.5f, 0f);
             }
-            else {
-                transform.localScale += new Vector3(0f, _value * PrefManager.instance.GetSantaCalc(), 0f); 
+            else
+            {
+                transform.localScale += new Vector3(0f, _value * PrefManager.instance.GetSantaCalc(), 0f);
             }
             //  tapping as value X user's power
             StartCoroutine(Pat());
@@ -44,11 +50,19 @@ public class BoxPat : MonoBehaviour {
 
             if (transform.localScale.y >= 1f)
             {
+                while(SledgeUIHolder.instance.isDelvering){
+                    yield return new WaitForSeconds(0.1f);
+                }
+                Debug.Log("SSSSSS");
                 done = true;
                 GiftSpawner.instance.ConveyorOut();
                 GameManager.instance.Stack++;
             }
         }
 
+    }
+    private void Update()
+    {
+        Debug.Log(GameManager.instance.Stack);
     }
 }
