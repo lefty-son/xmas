@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour {
     }
 
     IEnumerator LetterCour(){
-        var r = Random.Range(120f, 240f);
+        var r = Random.Range(60f, 120f);
         yield return new WaitForSeconds(r);
         BoardLetter();
     }
@@ -94,7 +94,7 @@ public class UIManager : MonoBehaviour {
     }
 
     IEnumerator NewbieLetterCour(){
-        yield return new WaitForSeconds(45f);
+        yield return new WaitForSeconds(30f);
         BoardLetter();
     }
 
@@ -146,6 +146,7 @@ public class UIManager : MonoBehaviour {
 
     public void BoardLetter(){
         letterButton.transform.localScale = Vector3.one;
+        SoundManager.instance.Alert();
         letterButton.Play();
     }
 

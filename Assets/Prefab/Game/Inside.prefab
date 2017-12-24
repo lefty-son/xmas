@@ -10715,6 +10715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114033029641319568
 MonoBehaviour:
@@ -10771,7 +10772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 305
+  dollar: 190
   dizziness: 0.13
 --- !u!114 &114068654355990492
 MonoBehaviour:
@@ -10784,7 +10785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 200
+  dollar: 136
   dizziness: 0.16
 --- !u!114 &114072388647980062
 MonoBehaviour:
@@ -10838,6 +10839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114140491407371254
 MonoBehaviour:
@@ -10850,6 +10852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114160606577469252
 MonoBehaviour:
@@ -10886,6 +10889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114188187153240850
 MonoBehaviour:
@@ -10966,6 +10970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114267105095366990
 MonoBehaviour:
@@ -11083,7 +11088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 156
+  dollar: 102
   dizziness: 0.18
 --- !u!114 &114333646741939130
 MonoBehaviour:
@@ -11143,6 +11148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114446963279950126
 MonoBehaviour:
@@ -11155,7 +11161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 128
+  dollar: 80
   dizziness: 0.2
 --- !u!114 &114456175007436046
 MonoBehaviour:
@@ -11168,7 +11174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 32
+  dollar: 24
   dizziness: 0.25
 --- !u!114 &114456734138639818
 MonoBehaviour:
@@ -11193,7 +11199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 240
+  dollar: 168
   dizziness: 0.15
 --- !u!114 &114467008938115884
 MonoBehaviour:
@@ -11217,7 +11223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 370
+  dollar: 232
   dizziness: 0.11
 --- !u!114 &114498067537932120
 MonoBehaviour:
@@ -11286,6 +11292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114524734437751738
 MonoBehaviour:
@@ -11298,6 +11305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114534757809598908
 MonoBehaviour:
@@ -11333,6 +11341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114565276971045458
 MonoBehaviour:
@@ -11345,6 +11354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114592779634438216
 MonoBehaviour:
@@ -11485,6 +11495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114787817176328772
 MonoBehaviour:
@@ -11543,6 +11554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114830937144001558
 MonoBehaviour:
@@ -11577,6 +11589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114874468642650326
 MonoBehaviour:
@@ -11600,7 +11613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 64
+  dollar: 48
   dizziness: 0.24
 --- !u!114 &114903953756674620
 MonoBehaviour:
@@ -11613,6 +11626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!114 &114912994035287750
 MonoBehaviour:
@@ -11670,7 +11684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 410
+  dollar: 270
   dizziness: 0.1
 --- !u!114 &114935814895219276
 MonoBehaviour:
@@ -11718,7 +11732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e523c06da94e2c85edc911ed71222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dollar: 96
+  dollar: 64
   dizziness: 0.22
 --- !u!114 &114965506755393500
 MonoBehaviour:
@@ -11764,6 +11778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6061f1cedec48464a8dbcced12a505e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   done: 0
 --- !u!198 &198131574752260738
 ParticleSystem:

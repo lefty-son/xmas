@@ -9,11 +9,17 @@ public class LetterHolder : MonoBehaviour {
 
     public GameObject one, two;
 
+    private Text t;
+
     private void Start()
+    {
+        t = GetComponent<Text>();
+    }
+
+    private void OnEnable()
     {
         one.SetActive(false);
         two.SetActive(false);
-        var t = GetComponent<Text>();
         if (PrefManager.instance.GetLanguage() == 1)
         {
             t.font = (Font)Resources.Load("Font/NanumBarunpenB");

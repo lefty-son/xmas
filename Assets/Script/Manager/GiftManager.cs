@@ -14,7 +14,7 @@ public class GiftManager : MonoBehaviour {
     public Text[] priceText;
     public Text[] dollarPriceText;
     public GameObject shaker;
-    public readonly int[] costInt= { 1, 2, 4, 8, 16, 32, 64, 96, 128, 156, 200, 240, 305, 370, 410 } ;
+    public readonly int[] costInt= { 1, 2, 4, 8, 16, 24, 48, 64, 80, 102, 136, 151, 180, 220, 270 } ;
 
     public readonly int[] giftCosts = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14};
 
